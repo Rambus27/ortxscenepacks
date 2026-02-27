@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Contact ORTX</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- Scroll Progress Bar -->
+<div class="scroll-progress" id="scroll-progress"></div>
+
+<!-- Particle Background -->
+<div id="particles-js"></div>
+
+<header>
+    <h2 class="logo">ORTX Scenepacks</h2>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="movies.html">Movies</a>
+        <a href="shows.html">Shows</a>
+        <a href="games.html">Games</a>
+        <a href="all.html">All Packs</a>
+        <a href="request.html">Request</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" class="active">Contact</a>
+    </nav>
+</header>
+
+<section class="page-header">
+    <h1>Contact Us</h1>
+</section>
+
+<section class="contact">
+    <p><a href="https://www.tiktok.com/@ortxskii?lang=en" target="_blank" style="font-size: 24px;"><img src="Images/tiktok logo no bg.png" alt="TikTok" width="50" height="50" style="vertical-align: middle;"> TikTok</a></p>
+    <p><a href="https://discord.gg/DMsD893nNt" target="_blank" style="font-size: 24px;"><img src="Images/dsicord logo no bg.png.png" alt="Discord" width="50" height="50" style="vertical-align: middle;"> Discord</a></p>
+</section>
+
+<footer>
+    <p>© 2026 ORTX Scenepacks</p>
+</footer>
+
+<script>
+// Mouse Glow Effect - Fixed for scroll and modal interactions
+const mouseGlow = document.createElement('div');
+mouseGlow.classList.add('mouse-glow');
+mouseGlow.style.pointerEvents = 'none';
+document.body.appendChild(mouseGlow);
+
+// Track mouse position globally
+let mouseX = 0;
+let mouseY = 0;
+let isMouseInDocument = true;
+
+document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    isMouseInDocument = true;
+    mouseGlow.style.opacity = '1';
+    mouseGlow.style.left = mouseX + 'px';
+    mouseGlow.style.top = mouseY + 'px';
+});
+
+document.addEventListener('scroll', () => {
+    mouseGlow.style.left = mouseX + 'px';
+    mouseGlow.style.top = mouseY + 'px';
+});
+
+document.addEventListener('mouseout', (e) => {
+    if (e.relatedTarget === null) {
+        isMouseInDocument = false;
+        mouseGlow.style.opacity = '0';
+    }
+});
+
+document.addEventListener('mouseover', (e) => {
+    if (e.relatedTarget !== null || (!isMouseInDocument && mouseX > 0)) {
+        isMouseInDocument = true;
+        mouseGlow.style.opacity = '1';
+    }
+});
+
+document.addEventListener('click', () => {
+    if (isMouseInDocument) {
+        mouseGlow.style.opacity = '1';
+    }
+});
+
+window.addEventListener('blur', () => {
+    mouseGlow.style.opacity = '0';
+});
+
+window.addEventListener('focus', () => {
+    if (isMouseInDocument) {
+        mouseGlow.style.opacity = '1';
+    }
+});
+
+// ============================================
+// NEW STYLISH ENHANCEMENTS JAVASCRIPT
+// ============================================
+
+// 1. Scroll Progress Bar
+const scrollProgressEl = document.getElementById('scroll-progress');
+window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercent = (scrollTop / docHeight) * 100;
+    scrollProgressEl.style.width = scrollPercent + '%';
+});
+
+// 2. Particle Background
+function createParticles() {
+    const particlesContainer = document.getElementById('particles-js');
+    const particleCount = 30;
+    
+    for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.classList.add('particle');
+        
+        const size = Math.random() * 6 + 2;
+        const left = Math.random() * 100;
+        const duration = Math.random() * 20 + 15;
+        const delay = Math.random() * 10;
+        const color = Math.random() > 0.5 ? '#8a5cff' : '#3a86ff';
+        
+        particle.style.width = size + 'px';
+        particle.style.height = size + 'px';
+        particle.style.left = left + '%';
+        particle.style.background = color;
+        particle.style.animationDuration = duration + 's';
+        particle.style.animationDelay = delay + 's';
+        
+        particlesContainer.appendChild(particle);
+    }
+}
+
+createParticles();
+
+// 3. Add glassmorphism class to elements
+document.querySelector('header').classList.add('glass');
+document.querySelector('footer').classList.add('glass');
+
+// 4. Add animation to contact section
+document.querySelector('.contact').style.animation = 'fadeInUp 0.6s ease forwards';
+
+</script>
+
+</body>
+</html>

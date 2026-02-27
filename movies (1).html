@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Movie Scenepacks</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="style.css">
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'GA_MEASUREMENT_ID');
+</script>
+</head>
+
+<body>
+
+<!-- Scroll Progress Bar -->
+<div class="scroll-progress" id="scroll-progress"></div>
+
+<!-- Particle Background -->
+<div id="particles-js"></div>
+
+<header>
+    <h2 class="logo">ORTX Scenepacks</h2>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="movies.html" class="active">Movies</a>
+        <a href="shows.html">Shows</a>
+        <a href="games.html">Games</a>
+        <a href="all.html">All Packs</a>
+        <button type="button" class="theme-toggle" id="theme-toggle" title="Toggle theme">🌙</button>
+    </nav>
+</header>
+
+<div class="breadcrumbs">
+    <a href="index.html">Home</a> <span>/</span> <span>Movies</span>
+</div>
+
+<section class="page-header">
+    <h1>Movie Scenepacks</h1>
+</section>
+
+<section class="filter-bar">
+    <select id="filter-filter"><option value="" selected>Filter by Genre</option><option>Action</option><option>Drama</option><option>Sci‑Fi</option><option>Horror</option><option>Superhero</option><option>Thriller</option><option>Crime</option></select>
+    <select id="sort-downloads">
+        <option value="">Sort by Downloads</option>
+        <option value="most">Most Downloaded</option>
+        <option value="least">Least Downloaded</option>
+    </select>
+    <div class="search-container">
+        <input id="search-input" type="text" placeholder="Search movies...">
+        <div class="dropdown" id="search-dropdown"></div>
+    </div>
+</section>
+
+<section class="grid">
+    <!-- Duplicate cards as needed -->
+    <div class="card" data-characters="Best Scenes" data-description="A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival." data-rt-url="https://www.rottentomatoes.com/m/interstellar" data-rt-score="73" onclick="openModal(this)">
+        <img src="Images/Interstellar.png" alt="Interstellar Scenepack">
+        <h3>Interstellar Scenepack</h3>
+        <a class="btn" href="#" onclick="openModal(this); event.stopPropagation()">Download</a>
+        <p class="tag">Sci‑Fi</p>
+        <div class="rt-score fresh"><a href="https://www.rottentomatoes.com/m/interstellar" target="_blank"><img src="Images/rotten_tomatoes-removebg-preview.png" alt="RT"><span class="score-value">73%</span></a></div>
+        <div class="social-share">
+            <button class="btn share-btn" onclick="sharePack('Interstellar Scenepack', 'movies.html'); event.stopPropagation()">📤 Share</button>
+        </div>
+    </div>
+    <div class="card" data-characters="Best Scenes" data-description="A low-level CIA analyst is suddenly thrust into the high-stakes world of international espionage." data-rt-url="https://www.rottentomatoes.com/tv/the_night_agent" data-rt-score="76" onclick="openModal(this)">
+    <img src="Images/night agent.png">
+    <h3>The Night Agent Scenepack</h3>
+    <a class="btn" href="#" onclick="openModal(this); event.stopPropagation()">Download</a>
+    <p class="tag">Action • Thriller</p>
+    <div class="rt-score fresh"><a href="https://www.rottentomatoes.com/tv/the_night_agent" target="_blank"><img src="Images/rotten_tomatoes-removebg-preview.png" alt="RT"><span class="score-value">82%</span></a></div>
+    <div class="social-share">
+        <button class="btn share-btn" onclick="sharePack('The Night Agent Scenepack', 'movies.html'); event.stopPropagation()">📤 Share</button>
+    </div>
+</div>
+
+<div class="card" data-characters="Best Scenes, Best Dialogue" data-description="In a future where Earth is abandoned, a lonely robot finds love." data-rt-url="https://www.rottentomatoes.com/m/walle" data-rt-score="97" onclick="openModal(this)">
+    <img src="Images/well-e.png">
+    <h3>Wall-E Scenepack</h3>
+    <a class="btn" href="#" onclick="openModal(this); event.stopPropagation()">Download</a>
+    <p class="tag">Drama</p>
+    <div class="rt-score fresh"><a href="https://www.rottentomatoes.com/m/walle" target="_blank"><img src="Images/rotten_tomatoes-removebg-preview.png" alt="RT"><span class="score-value">95%</span></a></div>
+    <div class="social-share">
+        <button class="btn share-btn" onclick="sharePack('Wall-E Scenepack', 'movies.html'); event.stopPropagation()">📤 Share</button>
+    </div>
+</div>
+
+<div class="card" data-characters="Best Scenes" data-description="After more than thirty years of service as one of the Navy's top aviators, Pete Mitchell is where he belongs." data-rt-url="https://www.rottentomatoes.com/m/top_gun_maverick" data-rt-score="96">
+    <img src="Images/top gun maverick.png">
+    <h3>Top Gun: Maverick Scenepack</h3>
+    <a class="btn" href="#" onclick="openModal(this); event.stopPropagation()">Download</a>
+    <p class="tag">Action</p>
+    <div class="rt-score fresh"><a href="https://www.rottentomatoes.com/m/top_gun_maverick" target="_blank"><img src="Images/rotten_tomatoes-removebg-preview.png" alt="RT"><span class="score-value">96%</span></a></div>
+    <div class="social-share">
+        <button class="btn share-btn" onclick="sharePack('Top Gun: Maverick Scenepack', 'movies.html'); event.stopPropagation()">📤 Share</button>
+    </div>
+</div>
+
+<div class="card" data-characters="Star Wars Prequels (Anakin & Obi-Wan), Star Wars Prequels (Anakin & Padmé) " data-description="A long time ago in a galaxy far, far away..." data-rt-url="https://www.rottentomatoes.com/franchise/star_wars" data-rt-score="90">
+    <img src="Images/star wars.png">
+    <h3>Star Wars Scenepack</h3>
+    <a class="btn" href="#" onclick="openModal(this); event.stopPropagation()">Download</a>
+    <p class="tag">Sci‑Fi</p>
+    <div class="rt-score fresh"><a href="https://www.rottentomatoes.com/franchise/star_wars" target="_blank"><img src="Images/rotten_tomatoes-removebg-preview.png" alt="RT"><span class="score-value">90%</span></a></div>
+    <div class="social-share">
+        <button class="btn share-btn" onclick="sharePack('Star Wars Scenepack', 'movies.html'); event.stopPropagation()">📤 Share</button>
+    </div>
+</div>
+
+<div class="card" data-characters="Peter Parker Best Scenes" data-description="With great power comes great responsibility." data-rt-url="https://www.rottentomatoes.com/m/the_amazing_spider_man_2" data-rt-score="17">
+    <img src="Images/TASM 2.png">
+    <h3>The Amazing Spider‑Man 2 Scenepack</h3>
+    <a class="btn" href="#" onclick="openModal(this); event.stopPropagation()">Download</a>
+    <p class="tag">Action • Superhero</p>
+    <div class="rt-score rotten"><a href="https://www.rottentomatoes.com/m/the_amazing_spider_man_2" target="_blank"><img src="Images/rotten_tomatoes-removebg-preview.png" alt="RT"><span class="score-value">51%</span></a></div>
+    <div class="social-share">
+        <button class="btn share-btn" onclick="sharePack('The Amazing Spider-Man 2 Scenepack', 'movies.html'); event.stopPropagation()">📤 Share</button>
+    </div>
+</div>
+
+<div class="card" data-characters="Peter Parker Best Scenes" data-description="With great power comes great responsibility." data-rt-url="https://www.rottentomatoes.com/m/the_amazing_spider_man" data-rt-score="72">
+    <img src="Images/TASM 1.png">
+    <h3>The Amazing Spider‑Man Scenepack</h3>
+    <a class="btn" href="#" onclick="openModal(this); event.stopPropagation()">Download</a>
+    <p class="tag">Action • Superhero</p>
+    <div class="rt-score fresh"><a href="https://www.rottentomatoes.com/m/the_amazing_spider_man" target="_blank"><img src="Images/rotten_tomatoes-removebg-preview.png" alt="RT"><span class="score-value">92%</span></a></div>
+    <div class="social-share">
+        <button class="btn share-btn" onclick="sharePack('The Amazing Spider-Man Scenepack', 'movies.html'); event.stopPropagation()">📤 Share</button>
+    </div>
+</div>
+
+<div class="card" data-characters="Peter Parker Best Scenes" data-description="With great power comes great responsibility." data-rt-url="https://www.rottentomatoes.com/m/spider_man_3" data-rt-score="23">
+    <img src="Images/spiderman 3.png">
+    <h3>Spider‑Man 3 Scenepack</h3>
+    <a class="btn" href="#" onclick="openModal(this); event.stopPropagation()">Download</a>
+    <p class="tag">Action • Superhero</p>
+    <div class="rt-score rotten"><a href="https://www.rottentomatoes.com/m/spider_man_3" target="_blank"><img src="Images/rotten_tomatoes-removebg-preview.png" alt="RT"><span class="score-value">92%</span></a></div>
+    <div class="social-share">
+        <button class="btn share-btn" onclick="sharePack('Spider-Man 3 Scenepack', 'movies.html'); event.stopPropagation()">📤 Share</button>
+    </div>
+</div>
+
+<div class="card" data-characters="Best Scenes" data-description="With great power comes great responsibility." data-rt-url="https://www.rottentomatoes.com/m/spider_man_homecoming" data-rt-score="92">
+    <img src="Images/spiderman homecoming.png">
+    <h3>Spider‑Man: Homecoming Scenepack</h3>
+    <a class="btn" href="#" onclick="openModal(this); event.stopPropagation()">Download</a>
+    <p class="tag">Action • Superhero</p>
+    <div class="rt-score fresh"><a href="https://www.rottentomatoes.com/m/spider_man_homecoming" target="_blank"><img src="Images/rotten_tomatoes-removebg-preview.png" alt="RT"><span class="score-value">92%</span></a></div>
+    <div class="social-share">
+        <button class="btn share-btn" onclick="sharePack('Spider-Man: Homecoming Scenepack', 'movies.html'); event.stopPropagation()">📤 Share</button>
+    </div>
+</div>
+
+<!-- SCREAM SERIES -->
+<div class="card" data-characters="Sidney Best Scenes" data-description="A killer known as Ghostface begins killing students." data-rt-url="https://www.rottentomatoes.com/m/scream_vi" data-rt-score="76">
+    <img src="Images/scream 6.png">
+    <h3>Scream VI Scenepack</h3>
+    <a class="btn" href="#" onclick="openModal(this); event.stopPropagation()">Download</a>
+    <p class="tag">Horror</p>
+    <div class="rt-score fresh"><a href="https://www.rottentomatoes.com/m/scream_vi" target="_blank"><img src="Images/rotten_tomatoes-removebg-preview.png" alt="RT"><span class="score-value">76%</span></a></div>
+    <div class="social-share">
+        <button class="btn share-btn" onclick="sharePack('Scream VI Scenepack', 'movies.html'); event.stopPropagation()">📤 Share</button>
+    </div>
+</div>
+
+<div class="card" data-characters="Sidney Best Scenes" data-description="A killer known as Ghostface begins killing students." data-rt-url="https://www.rottentomatoes.com/m/scream_2022" data-rt-score="78">
+    <img src="Images/scream 5.png">
+    <h3>Scream V Scenepack</h3>
+    <a class="btn" href="#" onclick="openModal(this); event.stopPropagation()">Download</a>
+    <p class="tag">Horror</p>
+    <div class="rt-score fresh"><a href="https://www.rottentomatoes.com/m/scream_2022" target="_blank"><img src="Images/rotten_tomatoes-removebg-preview.png" alt="RT"><span class="score-value">78%</span></a></div>
+    <div class="social-share">
+        <button class="btn share-btn" onclick="sharePack('Scream V Scenepack', 'movies.html'); event.stopPropagation()">📤 Share</button>
+    </div>
+</div>
+
+<div class="card" data-characters="Sidney Best Scenes" data-description="A killer known as Ghostface begins killing students." data-rt-url="https://www.rottentomatoes.com/m/scream_4" data-rt-score="54">
+    <img src="Images/scream 4.png">
+    <h3>Scream 4 Scenepack</h3>
+    <a class="btn" href="#" onclick="openModal(this); event.stopPropagation()">Download</a>
+    <p class="tag">Horror</p>
+    <div class="rt-score rotten"><a href="https://www.rottentomatoes.com/m/scream_4" target="_blank"><img src="Images/rotten_tomatoes-removebg-preview.png" alt="RT"><span class="score-value">54%</span></a></div>
+    <div class="social-share">
+        <button class="btn share-btn" onclick="sharePack('Scream 4 Scenepack', 'movies.html'); event.stopPropagation()">📤 Share</button>
+    </div>
+</div>
+
+<div class="card" data-characters="Sidney Best Scenes" data-description="A killer known as Ghostface begins killing students." data-rt-url="https://www.rottentomatoes.com/m/scream_3" data-rt-score="45">
+    <img src="Images/scream 3.png">
+    <h3>Scream 3 Scenepack</h3>
+    <a class="btn" href="#" onclick="openModal(this); event.stopPropagation()">Download</a>
+    <p class="tag">Horror</p>
+    <div class="rt-score rotten"><a href="https://www.rottentomatoes.com/m/scream_3" target="_blank"><img src="Images/rotten_tomatoes-removebg-preview.png" alt="RT"><span class="score-value">45%</span></a></div>
+    <div class="social-share">
+        <button class="btn share-btn" onclick="sharePack('Scream 3 Scenepack', 'movies.html'); event.stopPropagation()">📤 Share</button>
+    </div>
+</div>
+
+<div class="card" data-characters="Sidney Best Scenes" data-description="A killer known as Ghostface begins killing students." data-rt-url="https://www.rottentomatoes.com/m/scream_2" data-rt-score="81">
+    <img src="Images/scream 2.png">
+    <h3>Scream 2 Scenepack</h3>
+    <a class="btn" href="#" onclick="openModal(this); event.stopPropagation()">Download</a>
+    <p class="tag">Horror</p>
+    <div class="rt-score fresh"><a href="https://www.rottentomatoes.com/m/scream_2" target="_blank"><img src="Images/rotten_tomatoes-removebg-preview.png" alt="RT"><span class="score-value">81%</span></a></div>
+    <div class="social-share">
+        <button class="btn share-btn" onclick="sharePack('Scream 2 Scenepack', 'movies.html'); event.stopPropagation()">📤 Share</button>
+    </div>
+</div>
+
+<div class="card" data-characters="Sidney Best Scenes" data-description="A killer known as Ghostface begins killing students." data-rt-url="https://www.rottentomatoes.com/m/scream" data-rt-score="79">
+    <img src="Images/scream 1.png">
+    <h3>Scream Scenepack</h3>
+    <a class="btn" href="#" onclick="openModal(this); event.stopPropagation()">Download</a>
+    <p class="tag">Horror</p>
+    <div class="rt-score fresh"><a href="https://www.rottentomatoes.com/m/scream" target="_blank"><img src="Images/rotten_tomatoes-removebg-preview.png" alt="RT"><span class="score-value">79%</span></a></div>
+    <div class="social-share">
+        <button class="btn share-btn" onclick="sharePack('Scream Scenepack', 'movies.html'); event.stopPropagation()">📤 Share</button>
+    </div>
+</div>
+
+<div class="card" data-characters="Jack Reacher Best Scenes" data-description="A former military policeman investigates a murder." data-rt-url="https://www.rottentomatoes.com/tv/reacher" data-rt-score="97">
+    <img src="Images/reacher.png">
+    <h3>Reacher Scenepack</h3>
+    <a class="btn" href="#" onclick="openModal(this); event.stopPropagation()">Download</a>
+    <p class="tag">Action • Crime</p>
+    <div class="rt-score fresh"><a href="https://www.rottentomatoes.com/tv/reacher" target="_blank"><img src="Images/rotten_tomatoes-removebg-preview.png" alt="RT"><span class="score-value">97%</span></a></div>
+    <div class="social-share">
+        <button class="btn share-btn" onclick="sharePack('Reacher Scenepack', 'movies.html'); event.stopPropagation()">📤 Share</button>
+    </div>
+</div>
+
+<div class="card" data-characters="Neo Best Scenes" data-description="A computer hacker learns about the true nature of reality." data-rt-url="https://www.rottentomatoes.com/m/the_matrix" data-rt-score="88">
+    <img src="Images/matrix.png">
+    <h3>The Matrix Scenepack</h3>
+    <a class="btn" href="#" onclick="openModal(this); event.stopPropagation()">Download</a>
+    <p class="tag">Sci‑Fi • Action</p>
+    <div class="rt-score fresh"><a href="https://www.rottentomatoes.com/m/the_matrix" target="_blank"><img src="Images/rotten_tomatoes-removebg-preview.png" alt="RT"><span class="score-value">88%</span></a></div>
+    <div class="social-share">
+        <button class="btn share-btn" onclick="sharePack('The Matrix Scenepack', 'movies.html'); event.stopPropagation()">📤 Share</button>
+    </div>
+</div>
+
+<div class="card" data-characters="John Wick Best Scene, John Wick Best Dialogue" data-description="An ex-hitman comes out of retirement to track down the gangsters that took everything from him." data-rt-url="https://www.rottentomatoes.com/m/john_wick" data-rt-score="86">
+    <img src="Images/John Wick.png">
+    <h3>John Wick Chapter 1 Scenepack</h3>
+    <a class="btn" href="#" onclick="openModal(this); event.stopPropagation()">Download</a>
+    <p class="tag">Action • Thriller</p>
+    <div class="rt-score fresh"><a href="https://www.rottentomatoes.com/m/john_wick" target="_blank"><img src="Images/rotten_tomatoes-removebg-preview.png" alt="RT"><span class="score-value">86%</span></a></div>
+    <div class="social-share">
+        <button class="btn share-btn" onclick="sharePack('John Wick Chapter 1 Scenepack', 'movies.html'); event.stopPropagation()">📤 Share</button>
+    </div>
+</div>
+
+<div class="card" data-characters="John Wick Best Scenes, John Wick Best Dialogue" data-description="An ex-hitman comes out of retirement to track down the gangsters that took everything from him." data-rt-url="https://www.rottentomatoes.com/m/john_wick_chapter_2" data-rt-score="89">
+    <img src="Images/John Wick 2.jpg">
+    <h3>John Wick Chapter 2 Scenepack</h3>
+    <a class="btn" href="#" onclick="openModal(this); event.stopPropagation()">Download</a>
+    <p class="tag">Action • Thriller</p>
+    <div class="rt-score fresh"><a href="https://www.rottentomatoes.com/m/john_wick_chapter_2" target="_blank"><img src="Images/rotten_tomatoes-removebg-preview.png" alt="RT"><span class="score-value">89%</span></a></div>
+    <div class="social-share">
+        <button class="btn share-btn" onclick="sharePack('John Wick Chapter 2 Scenepack', 'movies.html'); event.stopPropagation()">📤 Share</button>
+    </div>
+</div>
+
+<div class="card" data-characters="John Wick Best Scenes" data-description="An ex-hitman comes out of retirement to track down the gangsters that took everything from him." data-rt-url="https://www.rottentomatoes.com/m/john_wick_chapter_3_parabellum" data-rt-score="89">
+    <img src="Images/John Wick 3.jpg">
+    <h3>John Wick Chapter 3 Scenepack</h3>
+    <a class="btn" href="#" onclick="openModal(this); event.stopPropagation()">Download</a>
+    <p class="tag">Action • Thriller</p>
+    <div class="rt-score fresh"><a href="https://www.rottentomatoes.com/m/john_wick_chapter_3_parabellum" target="_blank"><img src="Images/rotten_tomatoes-removebg-preview.png" alt="RT"><span class="score-value">89%</span></a></div>
+    <div class="social-share">
+        <button class="btn share-btn" onclick="sharePack('John Wick Chapter 3 Scenepack', 'movies.html'); event.stopPropagation()">📤 Share</button>
+    </div>
+</div>
+
+<div class="card" data-characters="John Wick Best Scenes, John Wick Best Dialogue" data-description="An ex-hitman comes out of retirement to track down the gangsters that took everything from him." data-rt-url="https://www.rottentomatoes.com/m/john_wick_chapter_4" data-rt-score="94">
+    <img src="Images/John Wick 4.jpg">
+    <h3>John Wick Chapter 4 Scenepack</h3>
+    <a class="btn" href="#" onclick="openModal(this); event.stopPropagation()">Download</a>
+    <p class="tag">Action • Thriller</p>
+    <div class="rt-score fresh"><a href="https://www.rottentomatoes.com/m/john_wick_chapter_4" target="_blank"><img src="Images/rotten_tomatoes-removebg-preview.png" alt="RT"><span class="score-value">94%</span></a></div>
+    <div class="social-share">
+        <button class="btn share-btn" onclick="sharePack('John Wick Chapter 4 Scenepack', 'movies.html'); event.stopPropagation()">📤 Share</button>
+    </div>
+</div>
+
+<div class="card" data-characters="John Wick Best Scenes" data-description="An ex-hitman comes out of retirement to track down the gangsters that took everything from him." data-rt-url="https://www.rottentomatoes.com/m/john_wick_ballerina" data-rt-score="54">
+    <img src="Images/John WIck Ballerina.jpg">
+    <h3>John Wick Ballerina Scenepack</h3>
+    <a class="btn" href="#" onclick="openModal(this); event.stopPropagation()">Download</a>
+    <p class="tag">Action • Thriller</p>
+    <div class="rt-score rotten"><a href="https://www.rottentomatoes.com/m/john_wick_ballerina" target="_blank"><img src="Images/rotten_tomatoes-removebg-preview.png" alt="RT"><span class="score-value">54%</span></a></div>
+    <div class="social-share">
+        <button class="btn share-btn" onclick="sharePack('John Wick Ballerina Scenepack', 'movies.html'); event.stopPropagation()">📤 Share</button>
+    </div>
+</div>
+<!-- IT SERIES -->
+<div class="card" data-characters="Best Scenes" data-description="A group of bullied kids band together when a shapeshifting demon, taking the form of a clown, begins hunting children." data-rt-url="https://www.rottentomatoes.com/m/it_chapter_two" data-rt-score="60">
+    <img src="Images/IT chapter 2.png">
+    <h3>IT: Chapter Two Scenepack</h3>
+    <a class="btn" href="#" onclick="openModal(this); event.stopPropagation()">Download</a>
+    <p class="tag">Horror</p>
+    <div class="rt-score fresh"><a href="https://www.rottentomatoes.com/m/it_chapter_two" target="_blank"><img src="Images/rotten_tomatoes-removebg-preview.png" alt="RT"><span class="score-value">60%</span></a></div>
+    <div class="social-share">
+        <button class="btn share-btn" onclick="sharePack('IT: Chapter Two Scenepack', 'movies.html'); event.stopPropagation()">📤 Share</button>
+    </div>
+</div>
+
+<div class="card" data-characters="Best Scenes" data-description="A group of bullied kids band together when a shapeshifting demon, taking the form of a clown, begins hunting children." data-rt-url="https://www.rottentomatoes.com/m/it_2017" data-rt-score="86">
+    <img src="Images/IT chapter 1.png">
+    <h3>IT: Chapter One Scenepack</h3>
+    <a class="btn" href="#" onclick="openModal(this); event.stopPropagation()">Download</a>
+    <p class="tag">Horror</p>
+    <div class="rt-score fresh"><a href="https://www.rottentomatoes.com/m/it_2017" target="_blank"><img src="Images/rotten_tomatoes-removebg-preview.png" alt="RT"><span class="score-value">86%</span></a></div>
+    <div class="social-share">
+        <button class="btn share-btn" onclick="sharePack('IT: Chapter One Scenepack', 'movies.html'); event.stopPropagation()">📤 Share</button>
+    </div>
+</div>
+
+<div class="card" data-characters="Brian Best Scenes" data-description="Brian O'Conner teams up with Dominic Toretto to take down a heroin importer." data-rt-url="https://www.rottentomatoes.com/m/2_fast_2_furious" data-rt-score="38">
+    <img src="Images/2 fast 2 furious.png">
+    <h3>2 Fast 2 Furious Scenepack</h3>
+    <a class="btn" href="#" onclick="openModal(this); event.stopPropagation()">Download</a>
+    <p class="tag">Action</p>
+    <div class="rt-score rotten"><a href="https://www.rottentomatoes.com/m/2_fast_2_furious" target="_blank"><img src="Images/rotten_tomatoes-removebg-preview.png" alt="RT"><span class="score-value">38%</span></a></div>
+    <div class="social-share">
+        <button class="btn share-btn" onclick="sharePack('2 Fast 2 Furious Scenepack', 'movies.html'); event.stopPropagation()">📤 Share</button>
+    </div>
+</div>
+
+<div class="card" data-characters="Best Scenes" data-description="Sean Boswell, a rebellious American teenager sent to live with his military father in Tokyo to avoid juvenile detention" data-rt-url="https://www.rottentomatoes.com/m/fast_and_furious_tokyo_drift" data-rt-score="69">
+    <img src="Images/fast and furious tokyo drift.jpg">
+    <h3>Fast and Furious Tokyo Drift Scenepack</h3>
+    <a class="btn" href="#" onclick="openModal(this); event.stopPropagation()">Download</a>
+    <p class="tag">Action</p>
+    <div class="rt-score fresh"><a href="https://www.rottentomatoes.com/m/fast_and_furious_tokyo_drift" target="_blank"><img src="Images/rotten_tomatoes-removebg-preview.png" alt="RT"><span class="score-value">69%</span></a></div>
+    <div class="social-share">
+        <button class="btn share-btn" onclick="sharePack('Fast and Furious Tokyo Drift Scenepack', 'movies.html'); event.stopPropagation()">📤 Share</button>
+    </div>
+</div>
+
+<div class="card" data-characters="Batman Best Scenes" data-description="Batman faces his greatest challenge yet." data-rt-url="https://www.rottentomatoes.com/m/the_dark_knight_rises" data-rt-score="87">
+    <img src="Images/batman the dark knight rises.png">
+    <h3>The Dark Knight Rises Scenepack</h3>
+    <a class="btn" href="#" onclick="openModal(this); event.stopPropagation()">Download</a>
+    <p class="tag">Action • Superhero</p>
+    <div class="rt-score fresh"><a href="https://www.rottentomatoes.com/m/the_dark_knight_rises" target="_blank"><img src="Images/rotten_tomatoes-removebg-preview.png" alt="RT"><span class="score-value">87%</span></a></div>
+    <div class="social-share">
+        <button class="btn share-btn" onclick="sharePack('The Dark Knight Rises Scenepack', 'movies.html'); event.stopPropagation()">📤 Share</button>
+    </div>
+</div>
+
+<div class="card" data-characters="Art The Clown Best Scenes" data-description="After leaving a party, Tara and her friend Dawn are followed by Art, who eventually kidnaps and brutally murders them. The film features intense, unflinching violence that is considered very controversial." data-rt-url="https://www.rottentomatoes.com/m/terrifier_2016" data-rt-score="86">
+    <img src="Images/Terrifier.jpg">
+    <h3>Terrifier Scenepack</h3>
+    <a class="btn" href="#" onclick="openModal(this); event.stopPropagation()">Download</a>
+    <p class="tag">Horror</p>
+    <div class="rt-score fresh"><a href="https://www.rottentomatoes.com/m/terrifier_2016" target="_blank"><img src="Images/rotten_tomatoes-removebg-preview.png" alt="RT"><span class="score-value">86%</span></a></div>
+    <div class="social-share">
+        <button class="btn share-btn" onclick="sharePack('Terrifier Scenepack', 'movies.html'); event.stopPropagation()">📤 Share</button>
+    </div>
+</div>
+
+<div class="card" data-characters="Art The Clown Best Scenes" data-description=" After the first film, a mysterious "Little Pale Girl" entity resurrects Art to continue his killing spree." data-rt-url="https://www.rottentomatoes.com/m/terrifier_2" data-rt-score="84">
+    <img src="Images/Terrifier 2.jpg">
+    <h3>Terrifier 2 Scenepack</h3>
+    <a class="btn" href="#" onclick="openModal(this); event.stopPropagation()">Download</a>
+    <p class="tag">Horror</p>
+    <div class="rt-score fresh"><a href="https://www.rottentomatoes.com/m/terrifier_2" target="_blank"><img src="Images/rotten_tomatoes-removebg-preview.png" alt="RT"><span class="score-value">84%</span></a></div>
+    <div class="social-share">
+        <button class="btn share-btn" onclick="sharePack('Terrifier 2 Scenepack', 'movies.html'); event.stopPropagation()">📤 Share</button>
+    </div>
+</div>
+
+<div class="card" data-characters="Art The Clown Best Scenes" data-description="follows Art the Clown as he returns to unleash a new wave of extreme, sadistic violence on the unsuspecting residents of Miles County" data-rt-url="https://www.rottentomatoes.com/m/terrifier_3" data-rt-score="67">
+    <img src="Images/terrifier 3.png">
+    <h3>Terrifier 3 Scenepack</h3>
+    <a class="btn" href="#" onclick="openModal(this); event.stopPropagation()">Download</a>
+    <p class="tag">Horror</p>
+    <div class="rt-score fresh"><a href="https://www.rottentomatoes.com/m/terrifier_3" target="_blank"><img src="Images/rotten_tomatoes-removebg-preview.png" alt="RT"><span class="score-value">67%</span></a></div>
+    <div class="social-share">
+        <button class="btn share-btn" onclick="sharePack('Terrifier 3 Scenepack', 'movies.html'); event.stopPropagation()">📤 Share</button>
+    </div>
+</div>
+
+</section>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>ORTX Scenepacks</h3>
+            <p>Free high-quality video scenepacks for editors from movies, shows, and games.</p>
+        </div>
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="movies.html">Movies</a></li>
+                <li><a href="shows.html">Shows</a></li>
+                <li><a href="games.html">Games</a></li>
+                <li><a href="all.html">All Packs</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Support</h3>
+            <ul>
+                <li><a href="request.html">Request a Pack</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Follow Us</h3>
+            <div class="social-links">
+                <a href="#" title="Twitter">🐦</a>
+                <a href="#" title="Discord">💬</a>
+                <a href="#" title="Reddit">🟠</a>
+            </div>
+        </div>
+    </div>
+    <div class="newsletter">
+        <input type="email" placeholder="Enter your email" id="newsletter-email">
+        <button onclick="subscribeNewsletter()">Subscribe</button>
+    </div>
+    <p>© 2026 ORTX Scenepacks. All rights reserved.</p>
+</footer>
+
+<div id="download-modal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2 id="modal-title">Download Options</h2>
+        <div id="modal-body"></div>
+    </div>
+</div>
+
+<script>
+// Theme toggle
+const themeToggle = document.getElementById('theme-toggle');
+const body = document.body;
+
+const savedTheme = localStorage.getItem('theme') || 'dark';
+body.setAttribute('data-theme', savedTheme);
+themeToggle.textContent = savedTheme === 'light' ? '☀️' : '🌙';
+
+themeToggle.addEventListener('click', (e) => {
+    e.preventDefault();
+    const currentTheme = body.getAttribute('data-theme');
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    body.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    themeToggle.textContent = newTheme === 'light' ? '☀️' : '🌙';
+});
+
+// Share function using Web Share API with clipboard fallback
+function sharePack(title, page) {
+    const url = window.location.origin + '/' + page;
+    const shareData = {
+        title: title + ' - ORTX Scenepacks',
+        text: 'Check out this amazing ' + title + ' scenepack from ORTX Scenepacks!',
+        url: url
+    };
+    
+    // Check if Web Share API is available
+    if (navigator.share) {
+        navigator.share(shareData).catch(err => {
+            if (err.name !== 'AbortError') {
+                copyToClipboard(url, title);
+            }
+        });
+    } else {
+        // Fallback: copy to clipboard
+        copyToClipboard(url, title);
+    }
+}
+
+function copyToClipboard(url, title) {
+    navigator.clipboard.writeText(url).then(() => {
+        alert('Link copied to clipboard! Share: ' + url);
+    }).catch(err => {
+        // Fallback for older browsers
+        const textArea = document.createElement('textarea');
+        textArea.value = url;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+        alert('Link copied to clipboard! Share: ' + url);
+    });
+}
+
+
+// Newsletter subscription
+function subscribeNewsletter() {
+    const email = document.getElementById('newsletter-email').value;
+    if (email) {
+        alert('Thank you for subscribing! We\'ll keep you updated with new scenepacks.');
+        document.getElementById('newsletter-email').value = '';
+    } else {
+        alert('Please enter a valid email address.');
+    }
+}
+
+// ============================================
+// DOWNLOAD COUNTER SYSTEM
+// ============================================
+
+// Get download count from localStorage
+function getDownloadCount(title) {
+    const counts = JSON.parse(localStorage.getItem('downloadCounts') || '{}');
+    return counts[title] || 0;
+}
+
+// Increment download count
+function incrementDownloadCount(title) {
+    const counts = JSON.parse(localStorage.getItem('downloadCounts') || '{}');
+    counts[title] = (counts[title] || 0) + 1;
+    localStorage.setItem('downloadCounts', JSON.stringify(counts));
+    return counts[title];
+}
+
+// Display download count in modal
+function getDownloadCountDisplay(title) {
+    const count = getDownloadCount(title);
+    return count > 0 ? ` (${count} downloads)` : '';
+}
+
+// Add download count to each card
+function addDownloadCountsToCards() {
+    document.querySelectorAll('.card').forEach(card => {
+        const title = card.querySelector('h3').textContent;
+        const count = getDownloadCount(title);
+        
+        // Add download count badge if count > 0
+        let countBadge = card.querySelector('.download-count');
+        if (!countBadge && count > 0) {
+            countBadge = document.createElement('span');
+            countBadge.className = 'download-count';
+            countBadge.style.cssText = 'font-size:12px; color:#8a5cff; margin-top:4px;';
+            card.appendChild(countBadge);
+        }
+        if (countBadge) {
+            countBadge.textContent = count > 0 ? `⬇️ ${count} downloads` : '';
+        }
+    });
+}
+
+// Initialize download counts on page load
+addDownloadCountsToCards();
+
+// ============================================
+// DOWNLOAD TRACKING & SORTING
+// ============================================
+
+// Track download when user clicks a download link
+function trackDownload(title) {
+    const newCount = incrementDownloadCount(title);
+    // Update the display
+    addDownloadCountsToCards();
+    return newCount;
+}
+
+// Sort cards by download count
+function sortByDownloads(order) {
+    const grid = document.querySelector('.grid');
+    const cardArray = Array.from(document.querySelectorAll('.card'));
+    
+    cardArray.sort((a, b) => {
+        const titleA = a.querySelector('h3').textContent;
+        const titleB = b.querySelector('h3').textContent;
+        const countA = getDownloadCount(titleA);
+        const countB = getDownloadCount(titleB);
+        
+        if (order === 'most') {
+            return countB - countA;
+        } else if (order === 'least') {
+            return countA - countB;
+        }
+        return 0;
+    });
+    
+    // Re-append cards in sorted order
+    cardArray.forEach(card => grid.appendChild(card));
+}
+
+// Add sort event listener
+document.getElementById('sort-downloads').addEventListener('change', function() {
+    const sortOrder = this.value;
+    if (sortOrder) {
+        sortByDownloads(sortOrder);
+    }
+});
+
+const searchInput = document.getElementById('search-input');
+const filterSelect = document.getElementById('filter-filter');
+const dropdown = document.getElementById('search-dropdown');
+const cards = document.querySelectorAll('.card');
+const titles = Array.from(cards).map(card => card.querySelector('h3').textContent.trim());
+
+function filterCards() {
+    const searchTerm = searchInput.value.toLowerCase().trim();
+    const selectedGenre = filterSelect.value;
+
+    cards.forEach(card => {
+        const title = card.querySelector('h3').textContent.toLowerCase();
+        const tag = card.querySelector('.tag').textContent;
+        const matchesSearch = title.includes(searchTerm);
+        const matchesGenre = selectedGenre === '' || tag.includes(selectedGenre);
+
+        if (matchesSearch && matchesGenre) {
+            card.style.display = '';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+}
+
+function updateSuggestions() {
+    const query = searchInput.value.toLowerCase().trim();
+    if (query.length < 1) {
+        dropdown.style.display = 'none';
+        return;
+    }
+    const matches = titles.filter(title => title.toLowerCase().includes(query)).slice(0, 10);
+    if (matches.length === 0) {
+        dropdown.style.display = 'none';
+        return;
+    }
+    dropdown.innerHTML = '';
+    matches.forEach(title => {
+        const li = document.createElement('li');
+        li.textContent = title;
+        li.addEventListener('click', () => {
+            searchInput.value = title;
+            dropdown.style.display = 'none';
+            filterCards();
+        });
+        dropdown.appendChild(li);
+    });
+    dropdown.style.display = 'block';
+}
+
+searchInput.addEventListener('input', updateSuggestions);
+searchInput.addEventListener('focus', () => {
+    if (searchInput.value.trim().length > 0) updateSuggestions();
+});
+searchInput.addEventListener('blur', () => {
+    setTimeout(() => dropdown.style.display = 'none', 150);
+});
+filterSelect.addEventListener('change', () => {
+    searchInput.value = '';
+    dropdown.style.display = 'none';
+    filterCards();
+});
+
+// Check URL params for search
+const urlParams = new URLSearchParams(window.location.search);
+const searchParam = urlParams.get('search');
+if (searchParam) {
+    searchInput.value = searchParam.replace(/-/g, '‑');
+    filterCards();
+}
+
+// Modal reference - now using window.downloadModal
+let isModalOpen = false;
+
+// Add click handlers to all cards
+document.querySelectorAll('.card').forEach(card => {
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', () => openModal(card));
+});
+
+// Mouse Glow Effect - Fixed for scroll and modal interactions
+const mouseGlow = document.createElement('div');
+mouseGlow.classList.add('mouse-glow');
+mouseGlow.style.pointerEvents = 'none';
+document.body.appendChild(mouseGlow);
+
+// Track mouse position globally
+let mouseX = 0;
+let mouseY = 0;
+let isMouseInDocument = true;
+
+document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    isMouseInDocument = true;
+    mouseGlow.style.opacity = '1';
+    mouseGlow.style.left = mouseX + 'px';
+    mouseGlow.style.top = mouseY + 'px';
+});
+
+document.addEventListener('scroll', () => {
+    mouseGlow.style.left = mouseX + 'px';
+    mouseGlow.style.top = mouseY + 'px';
+});
+
+// Restore glow when mouse returns to document (after clicking modal/links)
+document.addEventListener('mouseout', (e) => {
+    // Only hide if mouse is actually leaving the window
+    if (e.relatedTarget === null) {
+        isMouseInDocument = false;
+        mouseGlow.style.opacity = '0';
+    }
+});
+
+document.addEventListener('mouseover', (e) => {
+    // Restore when mouse enters from outside
+    if (e.relatedTarget !== null || (!isMouseInDocument && mouseX > 0)) {
+        isMouseInDocument = true;
+        mouseGlow.style.opacity = '1';
+    }
+});
+
+// Ensure glow works after any click
+document.addEventListener('click', () => {
+    if (isMouseInDocument) {
+        mouseGlow.style.opacity = '1';
+    }
+});
+
+// Keep glow visible when modal closes
+window.addEventListener('blur', () => {
+    mouseGlow.style.opacity = '0';
+});
+
+window.addEventListener('focus', () => {
+    if (isMouseInDocument) {
+        mouseGlow.style.opacity = '1';
+    }
+});
+
+// ============================================
+// NEW STYLISH ENHANCEMENTS JAVASCRIPT
+// ============================================
+
+// 1. Scroll Progress Bar
+const scrollProgress = document.getElementById('scroll-progress');
+window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercent = (scrollTop / docHeight) * 100;
+    scrollProgress.style.width = scrollPercent + '%';
+});
+
+// 2. Particle Background
+function createParticles() {
+    const particlesContainer = document.getElementById('particles-js');
+    const particleCount = 30;
+    
+    for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.classList.add('particle');
+        
+        // Random properties
+        const size = Math.random() * 6 + 2;
+        const left = Math.random() * 100;
+        const duration = Math.random() * 20 + 15;
+        const delay = Math.random() * 10;
+        const color = Math.random() > 0.5 ? '#8a5cff' : '#3a86ff';
+        
+        particle.style.width = size + 'px';
+        particle.style.height = size + 'px';
+        particle.style.left = left + '%';
+        particle.style.background = color;
+        particle.style.animationDuration = duration + 's';
+        particle.style.animationDelay = delay + 's';
+        
+        particlesContainer.appendChild(particle);
+    }
+}
+
+// Initialize particles
+createParticles();
+
+// 3. Add glassmorphism class to elements
+document.querySelector('header').classList.add('glass');
+document.querySelector('footer').classList.add('glass');
+document.querySelector('.modal-content').classList.add('glass');
+
+// 4. Add gradient border class to cards
+document.querySelectorAll('.card').forEach(card => {
+    card.classList.add('gradient-border');
+});
+
+// 5. Add 3D tilt effect to cards
+document.querySelectorAll('.card').forEach(card => {
+    card.classList.add('card-3d');
+});
+
+// 6. Add ripple effect to buttons
+document.querySelectorAll('.btn').forEach(btn => {
+    btn.classList.add('ripple');
+});
+
+// 7. Updated Modal Functions with Download Tracking
+
+// Make modalElement globally accessible
+window.downloadModal = document.getElementById('download-modal');
+
+// Updated openModal function
+window.openModal = function(element) {
+    const card = element.classList.contains('card') ? element : element.closest('.card');
+    if (!card) return;
+    
+    const title = card.querySelector('h3').textContent;
+    const imgSrc = card.querySelector('img').src;
+    const description = card.getAttribute('data-description');
+    const downloadCount = getDownloadCount(title);
+    const modalTitle = document.getElementById('modal-title');
+    const modalBody = document.getElementById('modal-body');
+    
+    modalTitle.textContent = title + ' Downloads';
+    const characters = card.getAttribute('data-characters').split(',');
+    let html = `<img src="${imgSrc}" style="width:100%; max-width:200px; display:block; margin:0 auto;"><p style="text-align:center; margin:10px 0;">${description}</p>`;
+    
+    // Show download count
+    if (downloadCount > 0) {
+        html += `<p style="text-align:center; color:#8a5cff; font-weight:bold; margin:10px 0;">⬇️ ${downloadCount} downloads</p>`;
+    }
+    
+    html += '<ul>';
+    
+    characters.forEach(char => {
+        let downloadLink = getDownloadLink(title, char);
+        html += `<li><a href="${downloadLink}" class="btn" target="_blank" onclick="trackDownload('${title.replace(/'/g, "\\'")}')">Download ${char.trim()}</a></li>`;
+    });
+
+    html += '</ul>';
+    modalBody.innerHTML = html;
+    
+    // Show modal centered on screen (viewport)
+    window.downloadModal.style.display = "block";
+    window.downloadModal.classList.add('show');
+    isModalOpen = true;
+    
+    // Add ripple to new buttons
+    window.downloadModal.querySelectorAll('.btn').forEach(btn => {
+        btn.classList.add('ripple');
+    });
+};
+
+// Helper function to get download link
+function getDownloadLink(title, char) {
+    let downloadLink = '#';
+    
+    const links = {
+        'The Dark Knight Rises Scenepack': 'https://buzzheavier.com/3wxwrf2cm4if',
+        'Scream 3 Scenepack': 'https://buzzheavier.com/ljfazfgfjkgk',
+        '2 Fast 2 Furious Scenepack': 'https://buzzheavier.com/h1mjokaxkb6u',
+        'Fast and Furious Tokyo Drift Scenepack': 'https://buzzheavier.com/99fthy6oz9ka',
+        'IT: Chapter One Scenepack': 'link',
+        'IT: Chapter Two Scenepack': 'https://buzzheavier.com/fmhg6p0e1z1n',
+        'John Wick Ballerina Scenepack': 'https://buzzheavier.com/vm71lukds3ed',
+        'Scream 4 Scenepack': 'https://buzzheavier.com/ybr3i2cap5un',
+        'Scream V Scenepack': 'https://buzzheavier.com/hgr1ua050tu3',
+        'Scream VI Scenepack': 'https://buzzheavier.com/nwgqkrtmr569',
+        'Spider-Man: Homecoming Scenepack': 'https://buzzheavier.com/m3nu5f1nm3ve',
+        'Spider-Man 3 Scenepack': 'https://buzzheavier.com/whm4lfl0p252',
+        'The Amazing Spider-Man Scenepack': 'https://buzzheavier.com/h934l4rumqpy',
+        'The Amazing Spider-Man 2 Scenepack': 'https://buzzheavier.com/n11bao2bnyd9',
+        'Top Gun: Maverick Scenepack': 'https://buzzheavier.com/ga8yjulw08pl',
+        'Terrifier': 'https://buzzheavier.com/gtwuz6ww6c0y',
+        'Terrifier 2 Scenepack': 'https://buzzheavier.com/abfrfa9c0rt3',
+        'Terrifier 3 Scenepack': 'https://buzzheavier.com/b9dosoi9ge3i',
+        'Wall-E Scenepack': 'link',
+        'Star Wars Scenepack': 'link',
+        'John Wick Chapter 1 Scenepack': 'link',
+        'John Wick Chapter 2 Scenepack': 'link',
+        'John Wick Chapter 4 Scenepack': 'link'
+    };
+    
+    if (links[title]) {
+        downloadLink = links[title];
+    }
+    
+    return downloadLink;
+}
+
+// Close modal handler
+const closeBtnElement = document.querySelector('.close');
+closeBtnElement.onclick = function() {
+    window.downloadModal.style.display = "none";
+    window.downloadModal.classList.remove('show');
+    isModalOpen = false;
+};
+
+window.onclick = function(event) {
+    if (event.target == window.downloadModal) {
+        window.downloadModal.style.display = "none";
+        window.downloadModal.classList.remove('show');
+        isModalOpen = false;
+    }
+};
+
+// Keyboard escape handler
+window.addEventListener('keydown', function(event) {
+    if (event.code === 'Escape' && isModalOpen) {
+        window.downloadModal.style.display = 'none';
+        window.downloadModal.classList.remove('show');
+        isModalOpen = false;
+    }
+});
+
+// 8. Intersection Observer for scroll animations
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.animationPlayState = 'running';
+        }
+    });
+}, observerOptions);
+
+document.querySelectorAll('.card').forEach(card => {
+    card.style.animationPlayState = 'paused';
+    observer.observe(card);
+});
+
+// Start animations when page loads
+window.addEventListener('load', () => {
+    document.querySelectorAll('.card').forEach(card => {
+        card.style.animationPlayState = 'running';
+    });
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ORTX Scenepacks — Home</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpg" href="ortx-scenepacks-logo.jpg">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'GA_MEASUREMENT_ID');
+  </script>
+</head>
+
+<body>
+
+<!-- Scroll Progress Bar -->
+<div class="scroll-progress" id="scroll-progress"></div>
+
+<!-- Particle Background -->
+<div id="particles-js"></div>
+
+<header>
+    <h2 class="logo">ORTX Scenepacks</h2>
+    <nav>
+        <a href="index.html" class="active">Home</a>
+        <a href="movies.html">Movies</a>
+        <a href="shows.html">Shows</a>
+        <a href="games.html">Games</a>
+        <a href="all.html">All Packs</a>
+        <a href="request.html">Request</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <button type="button" class="theme-toggle" id="theme-toggle" title="Toggle theme">🌙</button>
+    </nav>
+</header>
+
+<section class="hero">
+    <h1>Free Scenepacks for Editors</h1>
+    <p>Download high‑quality scenepacks from movies, shows, and games — instantly and for free.</p>
+    <a class="btn" href="all.html">Browse Packs</a>
+    <a class="btn" href="request.html">Request a Pack</a>
+</section>
+
+<section class="stats-section">
+    <h2>Our Collection</h2>
+    <div class="stats-grid">
+        <div class="stat-card movies">
+            <span class="stat-icon">🎬</span>
+            <span class="stat-number" data-target="31">0</span>
+            <span class="stat-label">Movies</span>
+        </div>
+        <div class="stat-card shows">
+            <span class="stat-icon">📺</span>
+            <span class="stat-number" data-target="5">0</span>
+            <span class="stat-label">Shows</span>
+        </div>
+        <div class="stat-card downloads">
+            <span class="stat-icon">⬇️</span>
+            <span class="stat-number" data-target="0">0</span>
+            <span class="stat-label">Downloads</span>
+        </div>
+    </div>
+</section>
+
+<section class="trending">
+    <h2>Trending Scenepacks</h2>
+    <div class="carousel-container">
+        <div class="carousel-controls">
+            <button class="carousel-btn" id="prev-btn">&lt;</button>
+            <button class="carousel-btn" id="next-btn">&gt;</button>
+        </div>
+        <div class="carousel">
+<a href="movies.html?search=John%20Wick" class="slide"><img src="Images/John Wick.png" alt="John Wick Scenepack"></a>
+            <a href="movies.html?search=Interstellar%20Scenepack" class="slide"><img src="Images/Interstellar.png" alt="Interstellar Scenepack"></a>
+            <a href="shows.html?search=Snowfall%20Scenepack" class="slide"><img src="Images/snowfall.png" alt="Snowfall Scenepack"></a>
+            <a href="shows.html?search=Dexter%20Scenepack" class="slide"><img src="Images/dexter.png" alt="Dexter Scenepack"></a>
+            <a href="movies.html?search=Top%20Gun%3A%20Maverick%20Scenepack" class="slide"><img src="Images/top gun maverick.png" alt="Top Gun: Maverick Scenepack"></a>
+            <a href="movies.html?search=Spider-Man%203%20Scenepack" class="slide"><img src="Images/spiderman 3.png" alt="Spider-Man 3 Scenepack"></a>
+            <a href="movies.html?search=Star%20Wars%20Scenepack" class="slide"><img src="Images/star wars.png" alt="Star Wars Scenepack"></a>
+            <a href="movies.html?search=2%20Fast%202%20Furious%20Scenepack" class="slide"><img src="Images/2 fast 2 furious.png" alt="2 Fast 2 Furious Scenepack"></a>
+        </div>
+    </div>
+</section>
+<footer>
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>ORTX Scenepacks</h3>
+            <p>Free high-quality video scenepacks for editors from movies, shows, and games.</p>
+        </div>
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="movies.html">Movies</a></li>
+                <li><a href="shows.html">Shows</a></li>
+                <li><a href="games.html">Games</a></li>
+                <li><a href="all.html">All Packs</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Support</h3>
+            <ul>
+                <li><a href="request.html">Request a Pack</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Follow Us</h3>
+            <div class="social-links">
+                <a href="#" title="Twitter">🐦</a>
+                <a href="#" title="Discord">💬</a>
+                <a href="#" title="Reddit">🟠</a>
+            </div>
+        </div>
+    </div>
+    <div class="newsletter">
+        <input type="email" placeholder="Enter your email" id="newsletter-email">
+        <button onclick="subscribeNewsletter()">Subscribe</button>
+    </div>
+    <p>© 2026 ORTX Scenepacks. All rights reserved.</p>
+</footer>
+
+<script>
+// Theme toggle
+const themeToggle = document.getElementById('theme-toggle');
+const body = document.body;
+
+const savedTheme = localStorage.getItem('theme') || 'dark';
+body.setAttribute('data-theme', savedTheme);
+themeToggle.textContent = savedTheme === 'light' ? '☀️' : '🌙';
+
+themeToggle.addEventListener('click', (e) => {
+    e.preventDefault();
+    const currentTheme = body.getAttribute('data-theme');
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    body.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    themeToggle.textContent = newTheme === 'light' ? '☀️' : '🌙';
+});
+
+// ============================================
+// STATS COUNTER FUNCTIONALITY
+// ============================================
+
+// Get total downloads from localStorage (across all pages)
+function getTotalDownloads() {
+    const counts = JSON.parse(localStorage.getItem('downloadCounts') || '{}');
+    let total = 0;
+    Object.values(counts).forEach(count => {
+        total += count;
+    });
+    return total;
+}
+
+// Animated counter function
+function animateCounter(element, target, duration = 2000) {
+    const start = 0;
+    const startTime = performance.now();
+    
+    function updateCounter(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        
+        // Easing function (ease-out)
+        const easeOut = 1 - Math.pow(1 - progress, 3);
+        const current = Math.floor(start + (target - start) * easeOut);
+        
+        element.textContent = current.toLocaleString();
+        
+        if (progress < 1) {
+            requestAnimationFrame(updateCounter);
+        } else {
+            element.textContent = target.toLocaleString();
+        }
+    }
+    
+    requestAnimationFrame(updateCounter);
+}
+
+// Initialize stats counters
+function initStatsCounters() {
+    const movieCount = 31;  // Total movies from movies.html
+    const showCount = 5;    // Total shows from shows.html
+    const downloadCount = getTotalDownloads();
+    
+    // Get the counter elements
+    const movieCounter = document.querySelector('.stat-card.movies .stat-number');
+    const showCounter = document.querySelector('.stat-card.shows .stat-number');
+    const downloadCounter = document.querySelector('.stat-card.downloads .stat-number');
+    
+    // Update data-target attributes
+    movieCounter.setAttribute('data-target', movieCount);
+    showCounter.setAttribute('data-target', showCount);
+    downloadCounter.setAttribute('data-target', downloadCount);
+    
+    // Animate counters with staggered delays
+    setTimeout(() => {
+        animateCounter(movieCounter, movieCount, 1500);
+    }, 300);
+    
+    setTimeout(() => {
+        animateCounter(showCounter, showCount, 1500);
+    }, 600);
+    
+    setTimeout(() => {
+        animateCounter(downloadCounter, downloadCount, 1500);
+    }, 900);
+}
+
+// Intersection Observer to start counter animation when visible
+const statsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            initStatsCounters();
+            statsObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.3 });
+
+const statsSection = document.querySelector('.stats-section');
+if (statsSection) {
+    statsObserver.observe(statsSection);
+}
+
+// Also run on page load as fallback
+window.addEventListener('load', () => {
+    setTimeout(initStatsCounters, 500);
+    if (statsSection) {
+        statsSection.classList.add('visible');
+    }
+});
+
+// Carousel controls
+const carousel = document.querySelector('.carousel');
+const prevBtn = document.getElementById('prev-btn');
+const nextBtn = document.getElementById('next-btn');
+let scrollAmount = 0;
+
+prevBtn.addEventListener('click', () => {
+    scrollAmount -= 210;
+    if (scrollAmount < 0) scrollAmount = carousel.scrollWidth - carousel.clientWidth;
+    carousel.scrollTo({ left: scrollAmount, behavior: 'smooth' });
+});
+
+nextBtn.addEventListener('click', () => {
+    scrollAmount += 210;
+    if (scrollAmount > carousel.scrollWidth - carousel.clientWidth) scrollAmount = 0;
+    carousel.scrollTo({ left: scrollAmount, behavior: 'smooth' });
+});
+
+// Auto-scroll carousel
+setInterval(() => {
+    if (!carousel.matches(':hover')) {
+        scrollAmount += 210;
+        if (scrollAmount > carousel.scrollWidth - carousel.clientWidth) scrollAmount = 0;
+        carousel.scrollTo({ left: scrollAmount, behavior: 'smooth' });
+    }
+}, 3000);
+
+// Newsletter subscription
+function subscribeNewsletter() {
+    const email = document.getElementById('newsletter-email').value;
+    if (email) {
+        alert('Thank you for subscribing! We\'ll keep you updated with new scenepacks.');
+        document.getElementById('newsletter-email').value = '';
+    } else {
+        alert('Please enter a valid email address.');
+    }
+}
+
+// Pause carousel on hover
+const slides = document.querySelectorAll('.slide');
+slides.forEach(slide => {
+    slide.addEventListener('mouseenter', () => {
+        carousel.style.animationPlayState = 'paused';
+    });
+    slide.addEventListener('mouseleave', () => {
+        carousel.style.animationPlayState = 'running';
+    });
+});
+
+// Mouse Glow Effect - Fixed for scroll and modal interactions
+const mouseGlow = document.createElement('div');
+mouseGlow.classList.add('mouse-glow');
+mouseGlow.style.pointerEvents = 'none';
+document.body.appendChild(mouseGlow);
+
+// Track mouse position globally
+let mouseX = 0;
+let mouseY = 0;
+let isMouseInDocument = true;
+
+document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    isMouseInDocument = true;
+    mouseGlow.style.opacity = '1';
+    mouseGlow.style.left = mouseX + 'px';
+    mouseGlow.style.top = mouseY + 'px';
+});
+
+document.addEventListener('scroll', () => {
+    mouseGlow.style.left = mouseX + 'px';
+    mouseGlow.style.top = mouseY + 'px';
+});
+
+// Restore glow when mouse returns to document (after clicking modal/links)
+document.addEventListener('mouseout', (e) => {
+    if (e.relatedTarget === null) {
+        isMouseInDocument = false;
+        mouseGlow.style.opacity = '0';
+    }
+});
+
+document.addEventListener('mouseover', (e) => {
+    if (e.relatedTarget !== null || (!isMouseInDocument && mouseX > 0)) {
+        isMouseInDocument = true;
+        mouseGlow.style.opacity = '1';
+    }
+});
+
+// Ensure glow works after any click
+document.addEventListener('click', () => {
+    if (isMouseInDocument) {
+        mouseGlow.style.opacity = '1';
+    }
+});
+
+// Keep glow visible when window regains focus
+window.addEventListener('blur', () => {
+    mouseGlow.style.opacity = '0';
+});
+
+window.addEventListener('focus', () => {
+    if (isMouseInDocument) {
+        mouseGlow.style.opacity = '1';
+    }
+});
+
+// ============================================
+// NEW STYLISH ENHANCEMENTS JAVASCRIPT
+// ============================================
+
+// 1. Scroll Progress Bar
+const scrollProgress = document.getElementById('scroll-progress');
+window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercent = (scrollTop / docHeight) * 100;
+    scrollProgress.style.width = scrollPercent + '%';
+});
+
+// 2. Particle Background
+function createParticles() {
+    const particlesContainer = document.getElementById('particles-js');
+    const particleCount = 30;
+    
+    for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.classList.add('particle');
+        
+        const size = Math.random() * 6 + 2;
+        const left = Math.random() * 100;
+        const duration = Math.random() * 20 + 15;
+        const delay = Math.random() * 10;
+        const color = Math.random() > 0.5 ? '#8a5cff' : '#3a86ff';
+        
+        particle.style.width = size + 'px';
+        particle.style.height = size + 'px';
+        particle.style.left = left + '%';
+        particle.style.background = color;
+        particle.style.animationDuration = duration + 's';
+        particle.style.animationDelay = delay + 's';
+        
+        particlesContainer.appendChild(particle);
+    }
+}
+
+createParticles();
+
+// 3. Add glassmorphism class to elements
+document.querySelector('header').classList.add('glass');
+document.querySelector('footer').classList.add('glass');
+
+// 4. Add ripple effect to buttons
+document.querySelectorAll('.btn').forEach(btn => {
+    btn.classList.add('ripple');
+});
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Game Scenepacks</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- Scroll Progress Bar -->
+<div class="scroll-progress" id="scroll-progress"></div>
+
+<!-- Particle Background -->
+<div id="particles-js"></div>
+
+<header>
+    <h2 class="logo">ORTX Scenepacks</h2>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="movies.html">Movies</a>
+        <a href="shows.html">Shows</a>
+        <a href="games.html" class="active">Games</a>
+        <a href="all.html">All Packs</a>
+    </nav>
+</header>
+
+<section class="page-header">
+    <h1>Game Scenepacks</h1>
+</section>
+
+<section class="filter-bar">
+    <select id="filter-filter"><option value="" selected>Filter by Genre</option><option>Action</option><option>Drama</option><option>Sci‑Fi</option><option>Horror</option><option>Superhero</option><option>Thriller</option><option>Crime</option><option>FPS</option><option>RPG</option><option>MOBA</option></select>
+    <div class="search-container">
+        <input id="search-input" type="text" placeholder="Search games...">
+        <div class="dropdown" id="search-dropdown"></div>
+    </div>
+</section>
+
+<section class="grid">
+    <div class="card">
+        <img src="thumb3.jpg">
+        <h3>Valorant Scenepack</h3>
+        <a class="btn" href="#">Download</a>
+        <p class="tag">FPS</p>
+        <div class="social-share">
+            <button class="btn share-btn" onclick="sharePack('Valorant Scenepack', 'games.html'); event.stopPropagation()">📤 Share</button>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 ORTX Scenepacks</p>
+</footer>
+
+<script>
+const searchInput = document.getElementById('search-input');
+const filterSelect = document.getElementById('filter-filter');
+const dropdown = document.getElementById('search-dropdown');
+const cards = document.querySelectorAll('.card');
+const titles = Array.from(cards).map(card => card.querySelector('h3').textContent.trim());
+
+// Share function using Web Share API with clipboard fallback
+function sharePack(title, page) {
+    const url = window.location.origin + '/' + page;
+    const shareData = {
+        title: title + ' - ORTX Scenepacks',
+        text: 'Check out this amazing ' + title + ' scenepack from ORTX Scenepacks!',
+        url: url
+    };
+    
+    // Check if Web Share API is available
+    if (navigator.share) {
+        navigator.share(shareData).catch(err => {
+            if (err.name !== 'AbortError') {
+                copyToClipboard(url, title);
+            }
+        });
+    } else {
+        // Fallback: copy to clipboard
+        copyToClipboard(url, title);
+    }
+}
+
+function copyToClipboard(url, title) {
+    navigator.clipboard.writeText(url).then(() => {
+        alert('Link copied to clipboard! Share: ' + url);
+    }).catch(err => {
+        // Fallback for older browsers
+        const textArea = document.createElement('textarea');
+        textArea.value = url;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+        alert('Link copied to clipboard! Share: ' + url);
+    });
+}
+
+function filterCards() {
+    const searchTerm = searchInput.value.toLowerCase().trim();
+    const selectedGenre = filterSelect.value;
+
+    cards.forEach(card => {
+        const title = card.querySelector('h3').textContent.toLowerCase();
+        const tag = card.querySelector('.tag').textContent;
+        const matchesSearch = title.includes(searchTerm);
+        const matchesGenre = selectedGenre === '' || tag.includes(selectedGenre);
+
+        if (matchesSearch && matchesGenre) {
+            card.style.display = '';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+}
+
+function updateSuggestions() {
+    const query = searchInput.value.toLowerCase().trim();
+    if (query.length < 1) {
+        dropdown.style.display = 'none';
+        return;
+    }
+    const matches = titles.filter(title => title.toLowerCase().includes(query)).slice(0, 10);
+    if (matches.length === 0) {
+        dropdown.style.display = 'none';
+        return;
+    }
+    dropdown.innerHTML = '';
+    matches.forEach(title => {
+        const li = document.createElement('li');
+        li.textContent = title;
+        li.addEventListener('click', () => {
+            searchInput.value = title;
+            dropdown.style.display = 'none';
+            filterCards();
+        });
+        dropdown.appendChild(li);
+    });
+    dropdown.style.display = 'block';
+}
+
+searchInput.addEventListener('input', updateSuggestions);
+searchInput.addEventListener('focus', () => {
+    if (searchInput.value.trim().length > 0) updateSuggestions();
+});
+searchInput.addEventListener('blur', () => {
+    setTimeout(() => dropdown.style.display = 'none', 150);
+});
+filterSelect.addEventListener('change', () => {
+    searchInput.value = '';
+    dropdown.style.display = 'none';
+    filterCards();
+});
+
+// Mouse Glow Effect - Fixed for scroll and modal interactions
+const mouseGlow = document.createElement('div');
+mouseGlow.classList.add('mouse-glow');
+mouseGlow.style.pointerEvents = 'none';
+document.body.appendChild(mouseGlow);
+
+// Track mouse position globally
+let mouseX = 0;
+let mouseY = 0;
+let isMouseInDocument = true;
+
+document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    isMouseInDocument = true;
+    mouseGlow.style.opacity = '1';
+    mouseGlow.style.left = mouseX + 'px';
+    mouseGlow.style.top = mouseY + 'px';
+});
+
+document.addEventListener('scroll', () => {
+    mouseGlow.style.left = mouseX + 'px';
+    mouseGlow.style.top = mouseY + 'px';
+});
+
+document.addEventListener('mouseout', (e) => {
+    if (e.relatedTarget === null) {
+        isMouseInDocument = false;
+        mouseGlow.style.opacity = '0';
+    }
+});
+
+document.addEventListener('mouseover', (e) => {
+    if (e.relatedTarget !== null || (!isMouseInDocument && mouseX > 0)) {
+        isMouseInDocument = true;
+        mouseGlow.style.opacity = '1';
+    }
+});
+
+document.addEventListener('click', () => {
+    if (isMouseInDocument) {
+        mouseGlow.style.opacity = '1';
+    }
+});
+
+window.addEventListener('blur', () => {
+    mouseGlow.style.opacity = '0';
+});
+
+window.addEventListener('focus', () => {
+    if (isMouseInDocument) {
+        mouseGlow.style.opacity = '1';
+    }
+});
+
+// ============================================
+// NEW STYLISH ENHANCEMENTS JAVASCRIPT
+// ============================================
+
+// 1. Scroll Progress Bar
+const scrollProgressEl = document.getElementById('scroll-progress');
+window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercent = (scrollTop / docHeight) * 100;
+    scrollProgressEl.style.width = scrollPercent + '%';
+});
+
+// 2. Particle Background
+function createParticles() {
+    const particlesContainer = document.getElementById('particles-js');
+    const particleCount = 30;
+    
+    for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.classList.add('particle');
+        
+        const size = Math.random() * 6 + 2;
+        const left = Math.random() * 100;
+        const duration = Math.random() * 20 + 15;
+        const delay = Math.random() * 10;
+        const color = Math.random() > 0.5 ? '#8a5cff' : '#3a86ff';
+        
+        particle.style.width = size + 'px';
+        particle.style.height = size + 'px';
+        particle.style.left = left + '%';
+        particle.style.background = color;
+        particle.style.animationDuration = duration + 's';
+        particle.style.animationDelay = delay + 's';
+        
+        particlesContainer.appendChild(particle);
+    }
+}
+
+createParticles();
+
+// 3. Add glassmorphism class to elements
+document.querySelector('header').classList.add('glass');
+document.querySelector('footer').classList.add('glass');
+
+// 4. Add gradient border and 3D tilt to cards
+document.querySelectorAll('.card').forEach(card => {
+    card.classList.add('gradient-border', 'card-3d');
+});
+
+// 5. Add ripple effect to buttons
+document.querySelectorAll('.btn').forEach(btn => {
+    btn.classList.add('ripple');
+});
+
+</script>
+
+</body>
+</html>

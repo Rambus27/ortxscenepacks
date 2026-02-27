@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>About ORTX Scenepacks</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="style.css">
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'GA_MEASUREMENT_ID');
+</script>
+</head>
+
+<body>
+
+<!-- Scroll Progress Bar -->
+<div class="scroll-progress" id="scroll-progress"></div>
+
+<!-- Particle Background -->
+<div id="particles-js"></div>
+
+<header>
+    <h2 class="logo">ORTX Scenepacks</h2>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html" class="active">About</a>
+        <button type="button" class="theme-toggle" id="theme-toggle" title="Toggle theme">🌙</button>
+    </nav>
+</header>
+
+<div class="breadcrumbs">
+    <a href="index.html">Home</a> <span>/</span> <span>About</span>
+</div>
+
+<section class="page-header">
+    <h1>About ORTX</h1>
+</section>
+
+<section class="about">
+    <p>ORTX Scenepacks provides high‑quality video scenepacks for editors, completely free. Our goal is to support creators with clean, organized, and cinematic footage from movies, shows, and games.</p>
+    <p>We focus on quality, accessibility, and fast downloads — no paywalls, no ads, no complications.</p>
+    <p>Founded in 2026, ORTX has been serving the video editing community with premium content that helps bring stories to life. Join thousands of editors who trust us for their creative projects.</p>
+</section>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>ORTX Scenepacks</h3>
+            <p>Free high-quality video scenepacks for editors from movies, shows, and games.</p>
+        </div>
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="movies.html">Movies</a></li>
+                <li><a href="shows.html">Shows</a></li>
+                <li><a href="games.html">Games</a></li>
+                <li><a href="all.html">All Packs</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Support</h3>
+            <ul>
+                <li><a href="request.html">Request a Pack</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Follow Us</h3>
+            <div class="social-links">
+                <a href="#" title="Twitter">🐦</a>
+                <a href="#" title="Discord">💬</a>
+                <a href="#" title="Reddit">🟠</a>
+            </div>
+        </div>
+    </div>
+    <div class="newsletter">
+        <input type="email" placeholder="Enter your email" id="newsletter-email">
+        <button onclick="subscribeNewsletter()">Subscribe</button>
+    </div>
+    <p>© 2026 ORTX Scenepacks. All rights reserved.</p>
+</footer>
+
+<script>
+// Theme toggle
+const themeToggle = document.getElementById('theme-toggle');
+const body = document.body;
+
+const savedTheme = localStorage.getItem('theme') || 'dark';
+body.setAttribute('data-theme', savedTheme);
+themeToggle.textContent = savedTheme === 'light' ? '☀️' : '🌙';
+
+themeToggle.addEventListener('click', (e) => {
+    e.preventDefault();
+    const currentTheme = body.getAttribute('data-theme');
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    body.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    themeToggle.textContent = newTheme === 'light' ? '☀️' : '🌙';
+});
+
+// Newsletter subscription
+function subscribeNewsletter() {
+    const email = document.getElementById('newsletter-email').value;
+    if (email) {
+        alert('Thank you for subscribing! We\'ll keep you updated with new scenepacks.');
+        document.getElementById('newsletter-email').value = '';
+    } else {
+        alert('Please enter a valid email address.');
+    }
+}
+
+// Mouse Glow Effect - Fixed for scroll and modal interactions
+const mouseGlow = document.createElement('div');
+mouseGlow.classList.add('mouse-glow');
+mouseGlow.style.pointerEvents = 'none';
+document.body.appendChild(mouseGlow);
+
+// Track mouse position globally
+let mouseX = 0;
+let mouseY = 0;
+let isMouseInDocument = true;
+
+document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    isMouseInDocument = true;
+    mouseGlow.style.opacity = '1';
+    mouseGlow.style.left = mouseX + 'px';
+    mouseGlow.style.top = mouseY + 'px';
+});
+
+document.addEventListener('scroll', () => {
+    mouseGlow.style.left = mouseX + 'px';
+    mouseGlow.style.top = mouseY + 'px';
+});
+
+document.addEventListener('mouseout', (e) => {
+    if (e.relatedTarget === null) {
+        isMouseInDocument = false;
+        mouseGlow.style.opacity = '0';
+    }
+});
+
+document.addEventListener('mouseover', (e) => {
+    if (e.relatedTarget !== null || (!isMouseInDocument && mouseX > 0)) {
+        isMouseInDocument = true;
+        mouseGlow.style.opacity = '1';
+    }
+});
+
+document.addEventListener('click', () => {
+    if (isMouseInDocument) {
+        mouseGlow.style.opacity = '1';
+    }
+});
+
+window.addEventListener('blur', () => {
+    mouseGlow.style.opacity = '0';
+});
+
+window.addEventListener('focus', () => {
+    if (isMouseInDocument) {
+        mouseGlow.style.opacity = '1';
+    }
+});
+
+// ============================================
+// NEW STYLISH ENHANCEMENTS JAVASCRIPT
+// ============================================
+
+// 1. Scroll Progress Bar
+const scrollProgressEl = document.getElementById('scroll-progress');
+window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercent = (scrollTop / docHeight) * 100;
+    scrollProgressEl.style.width = scrollPercent + '%';
+});
+
+// 2. Particle Background
+function createParticles() {
+    const particlesContainer = document.getElementById('particles-js');
+    const particleCount = 30;
+    
+    for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.classList.add('particle');
+        
+        const size = Math.random() * 6 + 2;
+        const left = Math.random() * 100;
+        const duration = Math.random() * 20 + 15;
+        const delay = Math.random() * 10;
+        const color = Math.random() > 0.5 ? '#8a5cff' : '#3a86ff';
+        
+        particle.style.width = size + 'px';
+        particle.style.height = size + 'px';
+        particle.style.left = left + '%';
+        particle.style.background = color;
+        particle.style.animationDuration = duration + 's';
+        particle.style.animationDelay = delay + 's';
+        
+        particlesContainer.appendChild(particle);
+    }
+}
+
+createParticles();
+
+// 3. Add glassmorphism class to elements
+document.querySelector('header').classList.add('glass');
+document.querySelector('footer').classList.add('glass');
+
+// 4. Add ripple effect to buttons
+document.querySelectorAll('.btn').forEach(btn => {
+    btn.classList.add('ripple');
+});
+
+// 5. Add animation to about section
+document.querySelector('.about').style.animation = 'fadeInUp 0.6s ease forwards';
+
+</script>
+
+</body>
+</html>

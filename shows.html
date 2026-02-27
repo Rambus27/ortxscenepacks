@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Show Scenepacks</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="style.css">
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'GA_MEASUREMENT_ID');
+</script>
+</head>
+
+<body>
+
+<!-- Scroll Progress Bar -->
+<div class="scroll-progress" id="scroll-progress"></div>
+
+<!-- Particle Background -->
+<div id="particles-js"></div>
+
+<header>
+    <h2 class="logo">ORTX Scenepacks</h2>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="movies.html">Movies</a>
+        <a href="shows.html" class="active">Shows</a>
+        <a href="games.html">Games</a>
+        <a href="all.html">All Packs</a>
+        <button type="button" class="theme-toggle" id="theme-toggle" title="Toggle theme">🌙</button>
+    </nav>
+</header>
+
+<div class="breadcrumbs">
+    <a href="index.html">Home</a> <span>/</span> <span>Movies</span>
+</div>
+
+<section class="page-header">
+    <h1>Show Scenepacks</h1>
+</section>
+
+<section class="filter-bar">
+    <select id="filter-filter"><option value="" selected>Filter by Genre</option><option>Action</option><option>Drama</option><option>Sci‑Fi</option><option>Horror</option><option>Superhero</option><option>Thriller</option><option>Crime</option></select>
+    <div class="search-container">
+        <input id="search-input" type="text" placeholder="Search movies...">
+        <div class="dropdown" id="search-dropdown"></div>
+    </div>
+</section>
+
+<section class="grid">
+    <!-- Duplicate cards as needed -->
+<div class="card" data-characters="Night Agent Season 1, Night Agent Season 2, Night Agent Season 3" data-description="A low-level CIA analyst is suddenly thrust into the high-stakes world of international espionage." data-rt-url="https://www.rottentomatoes.com/tv/the_night_agent" data-rt-score="76" onclick="openModal(this)">
+    <img src="Images/night agent.png">
+    <h3>The Night Agent Scenepack</h3>
+    <a class="btn" href="#" onclick="openModal(this); event.stopPropagation()">Download</a>
+    <p class="tag">Action • Thriller</p>
+    <div class="rt-score fresh"><a href="https://www.rottentomatoes.com/tv/the_night_agent" target="_blank"><img src="Images/rotten_tomatoes-removebg-preview.png" alt="RT"><span class="score-value">76%</span></a></div>
+    <div class="social-share">
+        <button class="btn share-btn" onclick="sharePack('The Night Agent Scenepack', 'shows.html'); event.stopPropagation()">📤 Share</button>
+    </div>
+</div>
+
+<div class="card" data-characters="Rick Season 1 Best Scenes, Rick Season 1 Best Dialogue, Rick Season 2 Best Scenes, Rick Season 3 Best Scenes, Rick Season 3 Best Dialogue, Rick Season 4, Rick Season 5, Rick Season 6, Rick Season 7, Rick Season 8, Rick Season 9, Rick Season 10, Rick Season 11" data-description="Survivors of a zombie apocalypse fight for their lives." data-rt-url="https://www.rottentomatoes.com/tv/the_walking_dead" data-rt-score="80" onclick="openModal(this)">
+    <img src="Images/walking dead.png">
+    <h3>The Walking Dead Scenepack</h3>
+    <a class="btn" href="#" onclick="openModal(this); event.stopPropagation()">Download</a>
+    <p class="tag">Horror • Drama</p>
+    <div class="rt-score fresh"><a href="https://www.rottentomatoes.com/tv/the_walking_dead" target="_blank"><img src="Images/rotten_tomatoes-removebg-preview.png" alt="RT"><span class="score-value">80%</span></a></div>
+    <div class="social-share">
+        <button class="btn share-btn" onclick="sharePack('The Walking Dead Scenepack', 'shows.html'); event.stopPropagation()">📤 Share</button>
+    </div>
+</div>
+
+<div class="card" data-characters="Reacher Season 1, Reacher Season 2, Reacher Season 3" data-description="A former military policeman investigates a murder." data-rt-url="https://www.rottentomatoes.com/tv/reacher" data-rt-score="97">
+    <img src="Images/reacher.png">
+    <h3>Reacher Scenepack</h3>
+    <a class="btn" href="#" onclick="openModal(this); event.stopPropagation()">Download</a>
+    <p class="tag">Action • Crime</p>
+    <div class="rt-score fresh"><a href="https://www.rottentomatoes.com/tv/reacher" target="_blank"><img src="Images/rotten_tomatoes-removebg-preview.png" alt="RT"><span class="score-value">97%</span></a></div>
+    <div class="social-share">
+        <button class="btn share-btn" onclick="sharePack('Reacher Scenepack', 'shows.html'); event.stopPropagation()">📤 Share</button>
+    </div>
+</div>
+
+<div class="card" data-characters="Dexter Season 1, Dexter Season 2, Dexter Season 3, Dexter Season 4, Dexter Season 5" data-description="Focusing on a forensic blood spatter analyst for the Miami Metro Police Department who leads a parallel life as a vigilante serial killer." data-rt-url="https://www.rottentomatoes.com/tv/dexter" data-rt-score="80">
+    <img src="Images/dexter.png">
+    <h3>Dexter Scenepack</h3>
+    <a class="btn" href="#" onclick="openModal(this); event.stopPropagation()">Download</a>
+    <p class="tag">Action • Crime</p>
+    <div class="rt-score fresh"><a href="https://www.rottentomatoes.com/tv/dexter" target="_blank"><img src="Images/rotten_tomatoes-removebg-preview.png" alt="RT"><span class="score-value">80%</span></a></div>
+    <div class="social-share">
+        <button class="btn share-btn" onclick="sharePack('Dexter Scenepack', 'shows.html'); event.stopPropagation()">📤 Share</button>
+    </div>
+</div>
+
+<div class="card" data-characters="All Seasons Best Scenes, Franklin Sait Season 1, Franklin Saint Season 2, Franklin Saint Season 3, Franklin Saint Season 4, Franklin Saint Season 5, Franklin Saint Season 6" data-description=" an acclaimed FX crime drama (2017–2023) detailing the 1980s crack cocaine epidemic in Los Angeles." data-rt-url="https://www.rottentomatoes.com/tv/snowfall" data-rt-score="97">
+    <img src="Images/snowfall.png">
+    <h3>Snowfall Scenepack</h3>
+    <a class="btn" href="#" onclick="openModal(this); event.stopPropagation()">Download</a>
+    <p class="tag">Action • Crime</p>
+    <div class="rt-score fresh"><a href="https://www.rottentomatoes.com/tv/snowfall" target="_blank"><img src="Images/rotten_tomatoes-removebg-preview.png" alt="RT"><span class="score-value">97%</span></a></div>
+    <div class="social-share">
+        <button class="btn share-btn" onclick="sharePack('Snowfall Scenepack', 'shows.html'); event.stopPropagation()">📤 Share</button>
+    </div>
+</div>
+
+</section>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>ORTX Scenepacks</h3>
+            <p>Free high-quality video scenepacks for editors from movies, shows, and games.</p>
+        </div>
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="movies.html">Movies</a></li>
+                <li><a href="shows.html">Shows</a></li>
+                <li><a href="games.html">Games</a></li>
+                <li><a href="all.html">All Packs</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Support</h3>
+            <ul>
+                <li><a href="request.html">Request a Pack</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Follow Us</h3>
+            <div class="social-links">
+                <a href="#" title="Twitter">🐦</a>
+                <a href="#" title="Discord">💬</a>
+                <a href="#" title="Reddit">🟠</a>
+            </div>
+        </div>
+    </div>
+    <p>© 2026 ORTX Scenepacks. All rights reserved.</p>
+</footer>
+
+<div id="download-modal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2 id="modal-title">Download Options</h2>
+        <div id="modal-body"></div>
+    </div>
+</div>
+
+<script>
+// Theme toggle
+const themeToggle = document.getElementById('theme-toggle');
+const body = document.body;
+
+const savedTheme = localStorage.getItem('theme') || 'dark';
+body.setAttribute('data-theme', savedTheme);
+themeToggle.textContent = savedTheme === 'light' ? '☀️' : '🌙';
+
+themeToggle.addEventListener('click', (e) => {
+    e.preventDefault();
+    const currentTheme = body.getAttribute('data-theme');
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    body.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    themeToggle.textContent = newTheme === 'light' ? '☀️' : '🌙';
+});
+
+// Share function using Web Share API with clipboard fallback
+function sharePack(title, page) {
+    const url = window.location.origin + '/' + page;
+    const shareData = {
+        title: title + ' - ORTX Scenepacks',
+        text: 'Check out this amazing ' + title + ' scenepack from ORTX Scenepacks!',
+        url: url
+    };
+    
+    // Check if Web Share API is available
+    if (navigator.share) {
+        navigator.share(shareData).catch(err => {
+            if (err.name !== 'AbortError') {
+                copyToClipboard(url, title);
+            }
+        });
+    } else {
+        // Fallback: copy to clipboard
+        copyToClipboard(url, title);
+    }
+}
+
+function copyToClipboard(url, title) {
+    navigator.clipboard.writeText(url).then(() => {
+        alert('Link copied to clipboard! Share: ' + url);
+    }).catch(err => {
+        // Fallback for older browsers
+        const textArea = document.createElement('textarea');
+        textArea.value = url;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+        alert('Link copied to clipboard! Share: ' + url);
+    });
+}
+
+// Social sharing functions
+function shareOnTwitter(title, url) {
+    const text = `Check out this amazing ${title} from ORTX Scenepacks!`;
+    const shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(window.location.origin + '/' + url)}`;
+    window.open(shareUrl, '_blank');
+}
+
+function shareOnFacebook(url) {
+    const shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.origin + '/' + url)}`;
+    window.open(shareUrl, '_blank');
+}
+
+function shareOnReddit(title) {
+    const shareUrl = `https://reddit.com/submit?url=${encodeURIComponent(window.location.origin + '/movies.html')}&title=${encodeURIComponent(title + ' - ORTX Scenepacks')}`;
+    window.open(shareUrl, '_blank');
+}
+
+// Newsletter subscription
+function subscribeNewsletter() {
+    const email = document.getElementById('newsletter-email').value;
+    if (email) {
+        alert('Thank you for subscribing! We\'ll keep you updated with new scenepacks.');
+        document.getElementById('newsletter-email').value = '';
+    } else {
+        alert('Please enter a valid email address.');
+    }
+}
+
+const searchInput = document.getElementById('search-input');
+const filterSelect = document.getElementById('filter-filter');
+const dropdown = document.getElementById('search-dropdown');
+const cards = document.querySelectorAll('.card');
+const titles = Array.from(cards).map(card => card.querySelector('h3').textContent.trim());
+
+function filterCards() {
+    const searchTerm = searchInput.value.toLowerCase().trim();
+    const selectedGenre = filterSelect.value;
+
+    cards.forEach(card => {
+        const title = card.querySelector('h3').textContent.toLowerCase();
+        const tag = card.querySelector('.tag').textContent;
+        const matchesSearch = title.includes(searchTerm);
+        const matchesGenre = selectedGenre === '' || tag.includes(selectedGenre);
+
+        if (matchesSearch && matchesGenre) {
+            card.style.display = '';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+}
+
+function updateSuggestions() {
+    const query = searchInput.value.toLowerCase().trim();
+    if (query.length < 1) {
+        dropdown.style.display = 'none';
+        return;
+    }
+    const matches = titles.filter(title => title.toLowerCase().includes(query)).slice(0, 10);
+    if (matches.length === 0) {
+        dropdown.style.display = 'none';
+        return;
+    }
+    dropdown.innerHTML = '';
+    matches.forEach(title => {
+        const li = document.createElement('li');
+        li.textContent = title;
+        li.addEventListener('click', () => {
+            searchInput.value = title;
+            dropdown.style.display = 'none';
+            filterCards();
+        });
+        dropdown.appendChild(li);
+    });
+    dropdown.style.display = 'block';
+}
+
+searchInput.addEventListener('input', updateSuggestions);
+searchInput.addEventListener('focus', () => {
+    if (searchInput.value.trim().length > 0) updateSuggestions();
+});
+searchInput.addEventListener('blur', () => {
+    setTimeout(() => dropdown.style.display = 'none', 150);
+});
+filterSelect.addEventListener('change', () => {
+    searchInput.value = '';
+    dropdown.style.display = 'none';
+    filterCards();
+});
+
+// Check URL params for search
+const urlParams = new URLSearchParams(window.location.search);
+const searchParam = urlParams.get('search');
+if (searchParam) {
+    searchInput.value = searchParam.replace(/-/g, '‑');
+    filterCards();
+}
+
+const modal = document.getElementById('download-modal');
+const modalTitle = document.getElementById('modal-title');
+const modalBody = document.getElementById('modal-body');
+const closeBtn = document.querySelector('.close');
+let isModalOpen = false;
+
+closeBtn.onclick = function() {
+    modal.style.display = "none";
+    isModalOpen = false;
+}
+
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+        isModalOpen = false;
+    }
+}
+
+function openModal(element) {
+    const card = element.classList.contains('card') ? element : element.closest('.card');
+    const title = card.querySelector('h3').textContent;
+    const imgSrc = card.querySelector('img').src;
+    const description = card.getAttribute('data-description');
+    modalTitle.textContent = title + ' Downloads';
+    const characters = card.getAttribute('data-characters').split(',');
+    let html = `<img src="${imgSrc}" style="width:100%; max-width:200px; display:block; margin:0 auto;"><p style="text-align:center; margin:10px 0;">${description}</p><ul>`;
+    characters.forEach(char => {
+       let downloadLink = '#';
+
+// Dexter seasons
+if (title === 'Dexter Scenepack') {
+    if (char.includes('Season 1')) downloadLink = 'DEXTER_SEASON_1_LINK';
+    else if (char.includes('Season 2')) downloadLink = 'DEXTER_SEASON_2_LINK';
+    else if (char.includes('Season 3')) downloadLink = 'DEXTER_SEASON_3_LINK';
+    else if (char.includes('Season 4')) downloadLink = 'DEXTER_SEASON_4_LINK';
+    else if (char.includes('Season 5')) downloadLink = 'DEXTER_SEASON_5_LINK';
+}
+
+// Snowfall seasons
+else if (title === 'Snowfall Scenepack') {
+    if (char.includes('All Seasons Best Scenes')) downloadLink = 'https://buzzheavier.com/4fz6kbsm54qc';
+    else if (char.includes('Season 1')) downloadLink = 'https://buzzheavier.com/bsgdksngh1nk';
+    else if (char.includes('Season 2')) downloadLink = 'SNOWFALL_SEASON_2_LINK';
+    else if (char.includes('Season 3')) downloadLink = 'SNOWFALL_SEASON_3_LINK';
+    else if (char.includes('Season 4')) downloadLink = 'SNOWFALL_SEASON_4_LINK';
+    else if (char.includes('Season 5')) downloadLink = 'SNOWFALL_SEASON_5_LINK';
+    else if (char.includes('Season 6')) downloadLink = 'SNOWFALL_SEASON_6_LINK';
+}
+
+// Night Agent seasons
+else if (title === 'Night Agent Scenepack') {
+    if (char.includes('Season 1')) downloadLink = 'NIGHT_AGENT_SEASON_1_LINK';
+    else if (char.includes('Season 2')) downloadLink = 'NIGHT_AGENT_SEASON_2_LINK';
+    else if (char.includes('Season 3')) downloadLink = 'NIGHT_AGENT_SEASON_3_LINK';
+}
+
+// Reacher seasons
+else if (title === 'Reacher Scenepack') {
+    if (char.includes('Season 1')) downloadLink = 'REACHER_SEASON_1_LINK';
+    else if (char.includes('Season 2')) downloadLink = 'https://buzzheavier.com/b05ba3mx3hk0';
+    else if (char.includes('Season 3')) downloadLink = 'REACHER_SEASON_3_LINK';
+}
+
+// Walking Dead seasons
+else if (title === 'The Walking Dead Scenepack') {
+    if (char.includes('Rick Season 1 Best Scenes')) downloadLink = 'https://buzzheavier.com/taftlba3spa3';
+    else if (char.includes('Rick Season 1 Best Dialogue')) downloadLink = 'https://buzzheavier.com/r48hme3zzib7';
+    else if (char.includes('Rick Season 2 Best Scenes')) downloadLink = 'https://buzzheavier.com/jwg6qb9viahu';
+    else if (char.includes('Rick Season 2 Best Dialogue')) downloadLink = 'https://buzzheavier.com/wwzyflkz47md';
+    else if (char.includes('Rick Season 3 Best Scenes')) downloadLink = 'https://buzzheavier.com/jp27krcjm8cg';
+    else if (char.includes('Rick Season 3 Best Dialogue')) downloadLink = 'https://buzzheavier.com/frkw465jqpl5';
+    else if (char.includes('Rick Season 4')) downloadLink = 'https://buzzheavier.com/w6sr83bz5hhe';
+    else if (char.includes('Rick Season 5')) downloadLink = 'https://buzzheavier.com/8p36mbovyc9p';
+    else if (char.includes('Rick Season 6')) downloadLink = 'WALKING_DEAD_SEASON_6_LINK';
+    else if (char.includes('Rick Season 7')) downloadLink = 'WALKING_DEAD_SEASON_7_LINK';
+    else if (char.includes('Rick Season 8')) downloadLink = 'WALKING_DEAD_SEASON_8_LINK';
+    else if (char.includes('Rick Season 9')) downloadLink = 'WALKING_DEAD_SEASON_9_LINK';
+    else if (char.includes('Rick Season 10')) downloadLink = 'WALKING_DEAD_SEASON_10_LINK';  
+    else if (char.includes('Rick Season 11')) downloadLink = 'WALKING_DEAD_SEASON_11_LINK';
+}
+    html += `<li><a href="${downloadLink}" class="btn" target="_blank">Download ${char.trim()}</a></li>`;
+    
+    });
+    html += '</ul>';
+    modalBody.innerHTML = html;
+    modal.style.display = "block";
+    isModalOpen = true;
+}
+
+document.querySelectorAll('.card').forEach(card => {
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', () => openModal(card));
+});
+
+window.addEventListener('keydown', function(event) {
+    if (event.code === 'Escape' && isModalOpen) {
+        modal.style.display = 'none';
+        isModalOpen = false;
+    }
+});
+
+// Mouse Glow Effect - Fixed for scroll and modal interactions
+const mouseGlow = document.createElement('div');
+mouseGlow.classList.add('mouse-glow');
+mouseGlow.style.pointerEvents = 'none';
+document.body.appendChild(mouseGlow);
+
+// Track mouse position globally
+let mouseX = 0;
+let mouseY = 0;
+let isMouseInDocument = true;
+
+document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    isMouseInDocument = true;
+    mouseGlow.style.opacity = '1';
+    mouseGlow.style.left = mouseX + 'px';
+    mouseGlow.style.top = mouseY + 'px';
+});
+
+document.addEventListener('scroll', () => {
+    mouseGlow.style.left = mouseX + 'px';
+    mouseGlow.style.top = mouseY + 'px';
+});
+
+// Restore glow when mouse returns to document (after clicking modal/links)
+document.addEventListener('mouseout', (e) => {
+    if (e.relatedTarget === null) {
+        isMouseInDocument = false;
+        mouseGlow.style.opacity = '0';
+    }
+});
+
+document.addEventListener('mouseover', (e) => {
+    if (e.relatedTarget !== null || (!isMouseInDocument && mouseX > 0)) {
+        isMouseInDocument = true;
+        mouseGlow.style.opacity = '1';
+    }
+});
+
+// Ensure glow works after any click
+document.addEventListener('click', () => {
+    if (isMouseInDocument) {
+        mouseGlow.style.opacity = '1';
+    }
+});
+
+// Keep glow visible when window regains focus
+window.addEventListener('blur', () => {
+    mouseGlow.style.opacity = '0';
+});
+
+window.addEventListener('focus', () => {
+    if (isMouseInDocument) {
+        mouseGlow.style.opacity = '1';
+    }
+});
+
+// ============================================
+// NEW STYLISH ENHANCEMENTS JAVASCRIPT
+// ============================================
+
+// 1. Scroll Progress Bar
+const scrollProgressEl = document.getElementById('scroll-progress');
+window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercent = (scrollTop / docHeight) * 100;
+    scrollProgressEl.style.width = scrollPercent + '%';
+});
+
+// 2. Particle Background
+function createParticles() {
+    const particlesContainer = document.getElementById('particles-js');
+    const particleCount = 30;
+    
+    for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.classList.add('particle');
+        
+        const size = Math.random() * 6 + 2;
+        const left = Math.random() * 100;
+        const duration = Math.random() * 20 + 15;
+        const delay = Math.random() * 10;
+        const color = Math.random() > 0.5 ? '#8a5cff' : '#3a86ff';
+        
+        particle.style.width = size + 'px';
+        particle.style.height = size + 'px';
+        particle.style.left = left + '%';
+        particle.style.background = color;
+        particle.style.animationDuration = duration + 's';
+        particle.style.animationDelay = delay + 's';
+        
+        particlesContainer.appendChild(particle);
+    }
+}
+
+createParticles();
+
+// 3. Add glassmorphism class to elements
+document.querySelector('header').classList.add('glass');
+document.querySelector('footer').classList.add('glass');
+document.querySelector('.modal-content').classList.add('glass');
+
+// 4. Add gradient border and 3D tilt to cards
+document.querySelectorAll('.card').forEach(card => {
+    card.classList.add('gradient-border', 'card-3d');
+});
+
+// 5. Add ripple effect to buttons
+document.querySelectorAll('.btn').forEach(btn => {
+    btn.classList.add('ripple');
+});
+
+// 6. Modal animation
+const modalEl = document.getElementById('download-modal');
+const originalOpenModal = window.openModal;
+
+window.openModal = function(element) {
+    originalOpenModal(element);
+    modalEl.classList.add('show');
+};
+
+const closeBtnEl = document.querySelector('.close');
+closeBtnEl.onclick = function() {
+    modalEl.style.display = "none";
+    modalEl.classList.remove('show');
+    isModalOpen = false;
+};
+
+window.onclick = function(event) {
+    if (event.target == modalEl) {
+        modalEl.style.display = "none";
+        modalEl.classList.remove('show');
+        isModalOpen = false;
+    }
+};
+
+window.addEventListener('keydown', function(event) {
+    if (event.code === 'Escape' && isModalOpen) {
+        modalEl.style.display = 'none';
+        modalEl.classList.remove('show');
+        isModalOpen = false;
+    }
+});
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>All Scenepacks</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- Scroll Progress Bar -->
+<div class="scroll-progress" id="scroll-progress"></div>
+
+<!-- Particle Background -->
+<div id="particles-js"></div>
+
+<header>
+    <h2 class="logo">ORTX Scenepacks</h2>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="movies.html">Movies</a>
+        <a href="shows.html">Shows</a>
+        <a href="games.html">Games</a>
+        <a href="all.html" class="active">All Packs</a>
+    </nav>
+</header>
+
+<section class="page-header">
+    <h1>All Scenepacks</h1>
+</section>
+
+<section class="filter-bar">
+    <select id="filter-filter"><option value="" selected>Filter by Genre</option><option>Action</option><option>Drama</option><option>Sci‑Fi</option><option>Horror</option><option>Superhero</option><option>Thriller</option><option>Crime</option><option>Fantasy</option><option>FPS</option><option>RPG</option><option>MOBA</option></select>
+    <div class="search-container">
+        <input id="search-input" type="text" placeholder="Search all packs...">
+        <div class="dropdown" id="search-dropdown"></div>
+    </div>
+</section>
+
+<section class="grid">
+    <div class="card" data-characters="Best Scenes" data-description="A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.">
+        <img src="Images/Interstellar.png">
+        <h3>Interstellar Scenepack</h3>
+        <a class="btn" href="#" onclick="openModal(this); event.stopPropagation()">Download</a>
+        <p class="tag">Sci‑Fi</p>
+    </div>
+    <div class="card" data-characters="Best Scenes" data-description="A low-level CIA analyst is suddenly thrust into the high-stakes world of international espionage.">
+    <img src="Images/night agent.png">
+    <h3>The Night Agent Scenepack</h3>
+    <a class="btn" href="#" onclick="openModal(this); event.stopPropagation()">Download</a>
+    <p class="tag">Action • Thriller</p>
+</div>
+
+<div class="card" data-characters="Wall-E Best Scenes" data-description="In a future where Earth is abandoned, a lonely robot finds love.">
+    <img src="Images/well-e.png">
+    <h3>Wall-E Scenepack</h3>
+    <a class="btn" href="#" onclick="openModal(this); event.stopPropagation()">Download</a>
+    <p class="tag">Drama</p>
+</div>
+
+<div class="card" data-characters="Rick, Daryl Best Scenes" data-description="Survivors of a zombie apocalypse fight for their lives.">
+    <img src="Images/walking dead.png">
+    <h3>The Walking Dead Scenepack</h3>
+    <a class="btn" href="#" onclick="openModal(this); event.stopPropagation()">Download</a>
+    <p class="tag">Horror • Drama</p>
+</div>
+
+<div class="card" data-characters="Best Scenes" data-description="After more than thirty years of service as one of the Navy's top aviators, Pete Mitchell is where he belongs.">
+    <img src="Images/top gun maverick.png">
+    <h3>Top Gun: Maverick Scenepack</h3>
+    <a class="btn" href="#" onclick="openModal(this); event.stopPropagation()">Download</a>
+    <p class="tag">Action</p>
+</div>
+
+<div class="card" data-characters="Best Scenes" data-description="A long time ago in a galaxy far, far away...">
+    <img src="Images/star wars.png">
+    <h3>Star Wars Scenepack</h3>
+    <a class="btn" href="#" onclick="openModal(this); event.stopPropagation()">Download</a>
+    <p class="tag">Sci‑Fi</p>
+</div>
+
+<div class="card" data-characters="Peter Parker Best Scenes" data-description="With great power comes great responsibility.">
+    <img src="Images/TASM 2.png">
+    <h3>The Amazing Spider‑Man 2 Scenepack</h3>
+    <a class="btn" href="#" onclick="openModal(this); event.stopPropagation()">Download</a>
+    <p class="tag">Action • Superhero</p>
+</div>
+
+<div class="card" data-characters="Peter Parker Best Scenes" data-description="With great power comes great responsibility.">
+    <img src="Images/TASM 1.png">
+    <h3>The Amazing Spider‑Man Scenepack</h3>
+    <a class="btn" href="#" onclick="openModal(this); event.stopPropagation()">Download</a>
+    <p class="tag">Action • Superhero</p>
+</div>
+
+<div class="card" data-characters="Peter Parker Best Scenes" data-description="With great power comes great responsibility.">
+    <img src="Images/spiderman 3.png">
+    <h3>Spider‑Man 3 Scenepack</h3>
+    <a class="btn" href="#" onclick="openModal(this); event.stopPropagation()">Download</a>
+    <p class="tag">Action • Superhero</p>
+</div>
+
+<div class="card" data-characters="Best Scenes" data-description="With great power comes great responsibility.">
+    <img src="Images/spiderman homecoming.png">
+    <h3>Spider‑Man: Homecoming Scenepack</h3>
+    <a class="btn" href="#" onclick="openModal(this); event.stopPropagation()">Download</a>
+    <p class="tag">Action • Superhero</p>
+</div>
+
+<div class="card" data-characters="Franklin Best Scenes" data-description="Franklin Saint and his family struggle to build an empire in the 1980s cocaine trade.">
+    <img src="Images/snowfall.png">
+    <h3>Snowfall Scenepack</h3>
+    <a class="btn" href="#" onclick="openModal(this); event.stopPropagation()">Download</a>
+    <p class="tag">Crime • Drama</p>
+</div>
+
+<!-- SCREAM SERIES -->
+<div class="card" data-characters="Sidney Best Scenes" data-description="A killer known as Ghostface begins killing students.">
+    <img src="Images/scream 6.png">
+    <h3>Scream VI Scenepack</h3>
+    <a class="btn" href="#" onclick="openModal(this); event.stopPropagation()">Download</a>
+    <p class="tag">Horror</p>
+</div>
+
+<div class="card" data-characters="Sidney Best Scenes" data-description="A killer known as Ghostface begins killing students.">
+    <img src="Images/scream 5.png">
+    <h3>Scream V Scenepack</h3>
+    <a class="btn" href="#" onclick="openModal(this); event.stopPropagation()">Download</a>
+    <p class="tag">Horror</p>
+</div>
+
+<div class="card" data-characters="Sidney Best Scenes" data-description="A killer known as Ghostface begins killing students.">
+    <img src="Images/scream 4.png">
+    <h3>Scream 4 Scenepack</h3>
+    <a class="btn" href="#" onclick="openModal(this); event.stopPropagation()">Download</a>
+    <p class="tag">Horror</p>
+</div>
+
+<div class="card" data-characters="Sidney Best Scenes" data-description="A killer known as Ghostface begins killing students.">
+    <img src="Images/scream 3.png">
+    <h3>Scream 3 Scenepack</h3>
+    <a class="btn" href="#" onclick="openModal(this); event.stopPropagation()">Download</a>
+    <p class="tag">Horror</p>
+</div>
+
+<div class="card" data-characters="Sidney Best Scenes" data-description="A killer known as Ghostface begins killing students.">
+    <img src="Images/scream 2.png">
+    <h3>Scream 2 Scenepack</h3>
+    <a class="btn" href="#" onclick="openModal(this); event.stopPropagation()">Download</a>
+    <p class="tag">Horror</p>
+</div>
+
+<div class="card" data-characters="Sidney Best Scenes" data-description="A killer known as Ghostface begins killing students.">
+    <img src="Images/scream 1.png">
+    <h3>Scream Scenepack</h3>
+    <a class="btn" href="#" onclick="openModal(this); event.stopPropagation()">Download</a>
+    <p class="tag">Horror</p>
+</div>
+
+<div class="card" data-characters="Jack Reacher Best Scenes" data-description="A former military policeman investigates a murder.">
+    <img src="Images/reacher.png">
+    <h3>Reacher Scenepack</h3>
+    <a class="btn" href="#" onclick="openModal(this); event.stopPropagation()">Download</a>
+    <p class="tag">Action • Crime</p>
+</div>
+
+<div class="card" data-characters="Neo Best Scenes" data-description="A computer hacker learns about the true nature of reality.">
+    <img src="Images/matrix.png">
+    <h3>The Matrix Scenepack</h3>
+    <a class="btn" href="#" onclick="openModal(this); event.stopPropagation()">Download</a>
+    <p class="tag">Sci‑Fi • Action</p>
+</div>
+
+<div class="card" data-characters="John Wick Best Scenes" data-description="An ex-hitman comes out of retirement to track down the gangsters that took everything from him.">
+    <img src="Images/John Wick.png">
+    <h3>John Wick Scenepack</h3>
+    <a class="btn" href="#" onclick="openModal(this); event.stopPropagation()">Download</a>
+    <p class="tag">Action • Thriller</p>
+</div>
+
+<!-- IT SERIES -->
+<div class="card" data-characters="Best Scenes" data-description="A group of bullied kids band together when a shapeshifting demon, taking the form of a clown, begins hunting children.">
+    <img src="Images/IT chapter 2.png">
+    <h3>IT: Chapter Two Scenepack</h3>
+    <a class="btn" href="#" onclick="openModal(this); event.stopPropagation()">Download</a>
+    <p class="tag">Horror</p>
+</div>
+
+<div class="card" data-characters="Best Scenes" data-description="A group of bullied kids band together when a shapeshifting demon, taking the form of a clown, begins hunting children.">
+    <img src="Images/IT chapter 1.png">
+    <h3>IT: Chapter One Scenepack</h3>
+    <a class="btn" href="#" onclick="openModal(this); event.stopPropagation()">Download</a>
+    <p class="tag">Horror</p>
+</div>
+
+<div class="card" data-characters="Brian Best Scenes" data-description="Brian O'Conner teams up with Dominic Toretto to take down a heroin importer.">
+    <img src="Images/2 fast 2 furious.png">
+    <h3>2 Fast 2 Furious Scenepack</h3>
+    <a class="btn" href="#" onclick="openModal(this); event.stopPropagation()">Download</a>
+    <p class="tag">Action</p>
+</div>
+
+<div class="card" data-characters="Batman Best Scenes" data-description="Batman faces his greatest challenge yet.">
+    <img src="Images/batman the dark knight rises.png">
+    <h3>The Dark Knight Rises Scenepack</h3>
+    <a class="btn" href="#" onclick="openModal(this); event.stopPropagation()">Download</a>
+    <p class="tag">Action • Superhero</p>
+</div>
+
+<div class="card" data-seasons="Season 1:Dexter,Debra,Rita;Season 2:Dexter,Debra,Rita;Season 3:Dexter,Debra,Rita;Season 4:Dexter,Debra,Rita;Season 5:Dexter,Debra,Rita;Season 6:Dexter,Debra,Rita;Season 7:Dexter,Debra,Rita;Season 8:Dexter,Debra,Rita" data-description="A forensic expert who moonlights as a serial killer.">
+    <img src="Images/dexter.png">
+    <h3>Dexter Scenepack</h3>
+    <a class="btn" href="#" onclick="openModal(this); event.stopPropagation()">Download</a>
+    <p class="tag">Crime • Thriller</p>
+</div>
+
+<div class="card" data-seasons="Season 1:Walter White,Jesse Pinkman,Skyler;Season 2:Walter White,Jesse Pinkman,Skyler;Season 3:Walter White,Jesse Pinkman,Skyler;Season 4:Walter White,Jesse Pinkman,Skyler;Season 5:Walter White,Jesse Pinkman,Skyler" data-description="A high school chemistry teacher diagnosed with inoperable lung cancer turns to manufacturing and selling methamphetamine.">
+    <img src="Images/breaking bad.png">
+    <h3>Breaking Bad Scenepack</h3>
+    <a class="btn" href="#" onclick="openModal(this); event.stopPropagation()">Download</a>
+    <p class="tag">Crime • Drama</p>
+</div>
+
+<div class="card" data-seasons="Season 1:Pennywise,Beverly" data-description="A limited horror series based on Stephen King's IT.">
+    <img src="Images/IT welcome to derry.png">
+    <h3>Welcome to Derry Scenepack</h3>
+    <a class="btn" href="#" onclick="openModal(this); event.stopPropagation()">Download</a>
+    <p class="tag">Horror</p>
+</div>
+
+</section>
+
+<footer>
+    <p>© 2026 ORTX Scenepacks</p>
+</footer>
+
+<div id="download-modal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2 id="modal-title">Download Options</h2>
+        <div id="modal-body"></div>
+    </div>
+</div>
+
+<script>
+const modal = document.getElementById('download-modal');
+const modalTitle = document.getElementById('modal-title');
+const modalBody = document.getElementById('modal-body');
+const closeBtn = document.querySelector('.close');
+let isModalOpen = false;
+
+closeBtn.onclick = function() {
+    modal.style.display = "none";
+    isModalOpen = false;
+}
+
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+        isModalOpen = false;
+    }
+}
+
+function openModal(element) {
+    const card = element.classList.contains('card') ? element : element.closest('.card');
+    const title = card.querySelector('h3').textContent;
+    const imgSrc = card.querySelector('img').src;
+    const description = card.getAttribute('data-description');
+    modalTitle.textContent = title + ' Downloads';
+    const seasons = card.getAttribute('data-seasons');
+    if (seasons) {
+        // It's a show
+        const seasonList = seasons.split(';');
+        let html = `<img src="${imgSrc}" style="width:100%; max-width:200px; display:block; margin:0 auto;"><p style="text-align:center; margin:10px 0;">${description}</p>`;
+        seasonList.forEach(season => {
+            const [seasonName, chars] = season.split(':');
+            html += `<h3>${seasonName}</h3><ul>`;
+            chars.split(',').forEach(char => {
+                html += `<li><a href="#" class="btn" target="_blank">Download ${char.trim()}</a></li>`;
+            });
+            html += '</ul>';
+        });
+        modalBody.innerHTML = html;
+    } else {
+        // Movie or game
+        const characters = card.getAttribute('data-characters').split(',');
+        let html = `<img src="${imgSrc}" style="width:100%; max-width:200px; display:block; margin:0 auto;"><p style="text-align:center; margin:10px 0;">${description}</p><ul>`;
+        characters.forEach(char => {
+            let downloadLink = '#';
+            if (title === 'The Dark Knight Rises Scenepack') {
+                downloadLink = 'https://buzzheavier.com/3wxwrf2cm4if';
+            } else if (title === 'Scream 3 Scenepack') {
+                downloadLink = 'https://buzzheavier.com/ljfazfgfjkgk';
+            }
+            html += `<li><a href="${downloadLink}" class="btn" target="_blank">Download ${char.trim()}</a></li>`;
+        });
+        html += '</ul>';
+        modalBody.innerHTML = html;
+    }
+    modal.style.display = "block";
+    isModalOpen = true;
+}
+
+document.querySelectorAll('.card').forEach(card => {
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', () => openModal(card));
+});
+
+window.addEventListener('keydown', function(event) {
+    if (event.code === 'Escape' && isModalOpen) {
+        modal.style.display = 'none';
+        isModalOpen = false;
+    }
+});
+
+const searchInput = document.getElementById('search-input');
+const filterSelect = document.getElementById('filter-filter');
+const dropdown = document.getElementById('search-dropdown');
+const cards = document.querySelectorAll('.card');
+const titles = Array.from(cards).map(card => card.querySelector('h3').textContent.trim());
+
+function filterCards() {
+    const searchTerm = searchInput.value.toLowerCase().trim();
+    const selectedGenre = filterSelect.value;
+
+    cards.forEach(card => {
+        const title = card.querySelector('h3').textContent.toLowerCase();
+        const tag = card.querySelector('.tag').textContent;
+        const matchesSearch = title.includes(searchTerm);
+        const matchesGenre = selectedGenre === '' || tag.includes(selectedGenre);
+
+        if (matchesSearch && matchesGenre) {
+            card.style.display = '';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+}
+
+function updateSuggestions() {
+    const query = searchInput.value.toLowerCase().trim();
+    if (query.length < 1) {
+        dropdown.style.display = 'none';
+        return;
+    }
+    const matches = titles.filter(title => title.toLowerCase().includes(query)).slice(0, 10);
+    if (matches.length === 0) {
+        dropdown.style.display = 'none';
+        return;
+    }
+    dropdown.innerHTML = '';
+    matches.forEach(title => {
+        const li = document.createElement('li');
+        li.textContent = title;
+        li.addEventListener('click', () => {
+            searchInput.value = title;
+            dropdown.style.display = 'none';
+            filterCards();
+        });
+        dropdown.appendChild(li);
+    });
+    dropdown.style.display = 'block';
+}
+
+searchInput.addEventListener('input', updateSuggestions);
+searchInput.addEventListener('focus', () => {
+    if (searchInput.value.trim().length > 0) updateSuggestions();
+});
+searchInput.addEventListener('blur', () => {
+    setTimeout(() => dropdown.style.display = 'none', 150);
+});
+filterSelect.addEventListener('change', () => {
+    searchInput.value = '';
+    dropdown.style.display = 'none';
+    filterCards();
+});
+
+// Mouse Glow Effect - Fixed for scroll and modal interactions
+const mouseGlow = document.createElement('div');
+mouseGlow.classList.add('mouse-glow');
+mouseGlow.style.pointerEvents = 'none';
+document.body.appendChild(mouseGlow);
+
+// Track mouse position globally
+let mouseX = 0;
+let mouseY = 0;
+let isMouseInDocument = true;
+
+document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    isMouseInDocument = true;
+    mouseGlow.style.opacity = '1';
+    mouseGlow.style.left = mouseX + 'px';
+    mouseGlow.style.top = mouseY + 'px';
+});
+
+document.addEventListener('scroll', () => {
+    mouseGlow.style.left = mouseX + 'px';
+    mouseGlow.style.top = mouseY + 'px';
+});
+
+document.addEventListener('mouseout', (e) => {
+    if (e.relatedTarget === null) {
+        isMouseInDocument = false;
+        mouseGlow.style.opacity = '0';
+    }
+});
+
+document.addEventListener('mouseover', (e) => {
+    if (e.relatedTarget !== null || (!isMouseInDocument && mouseX > 0)) {
+        isMouseInDocument = true;
+        mouseGlow.style.opacity = '1';
+    }
+});
+
+document.addEventListener('click', () => {
+    if (isMouseInDocument) {
+        mouseGlow.style.opacity = '1';
+    }
+});
+
+window.addEventListener('blur', () => {
+    mouseGlow.style.opacity = '0';
+});
+
+window.addEventListener('focus', () => {
+    if (isMouseInDocument) {
+        mouseGlow.style.opacity = '1';
+    }
+});
+
+// ============================================
+// NEW STYLISH ENHANCEMENTS JAVASCRIPT
+// ============================================
+
+// 1. Scroll Progress Bar
+const scrollProgressEl = document.getElementById('scroll-progress');
+window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercent = (scrollTop / docHeight) * 100;
+    scrollProgressEl.style.width = scrollPercent + '%';
+});
+
+// 2. Particle Background
+function createParticles() {
+    const particlesContainer = document.getElementById('particles-js');
+    const particleCount = 30;
+    
+    for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.classList.add('particle');
+        
+        const size = Math.random() * 6 + 2;
+        const left = Math.random() * 100;
+        const duration = Math.random() * 20 + 15;
+        const delay = Math.random() * 10;
+        const color = Math.random() > 0.5 ? '#8a5cff' : '#3a86ff';
+        
+        particle.style.width = size + 'px';
+        particle.style.height = size + 'px';
+        particle.style.left = left + '%';
+        particle.style.background = color;
+        particle.style.animationDuration = duration + 's';
+        particle.style.animationDelay = delay + 's';
+        
+        particlesContainer.appendChild(particle);
+    }
+}
+
+createParticles();
+
+// 3. Add glassmorphism class to elements
+document.querySelector('header').classList.add('glass');
+document.querySelector('footer').classList.add('glass');
+document.querySelector('.modal-content').classList.add('glass');
+
+// 4. Add gradient border and 3D tilt to cards
+document.querySelectorAll('.card').forEach(card => {
+    card.classList.add('gradient-border', 'card-3d');
+});
+
+// 5. Add ripple effect to buttons
+document.querySelectorAll('.btn').forEach(btn => {
+    btn.classList.add('ripple');
+});
+
+// 6. Modal animation
+const modalEl = document.getElementById('download-modal');
+const originalOpenModal = window.openModal;
+
+window.openModal = function(element) {
+    originalOpenModal(element);
+    modalEl.classList.add('show');
+};
+
+const closeBtnEl = document.querySelector('.close');
+closeBtnEl.onclick = function() {
+    modalEl.style.display = "none";
+    modalEl.classList.remove('show');
+    isModalOpen = false;
+};
+
+window.onclick = function(event) {
+    if (event.target == modalEl) {
+        modalEl.style.display = "none";
+        modalEl.classList.remove('show');
+        isModalOpen = false;
+    }
+};
+
+window.addEventListener('keydown', function(event) {
+    if (event.code === 'Escape' && isModalOpen) {
+        modalEl.style.display = 'none';
+        modalEl.classList.remove('show');
+        isModalOpen = false;
+    }
+});
+
+</script>
+
+</body>
+</html>

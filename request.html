@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Request a Scenepack</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- Scroll Progress Bar -->
+<div class="scroll-progress" id="scroll-progress"></div>
+
+<!-- Particle Background -->
+<div id="particles-js"></div>
+
+<header>
+    <h2 class="logo">ORTX Scenepacks</h2>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="movies.html">Movies</a>
+        <a href="shows.html">Shows</a>
+        <a href="games.html">Games</a>
+        <a href="all.html">All Packs</a>
+        <a href="request.html" class="active">Request</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
+<section class="page-header">
+    <h1>Request a Scenepack</h1>
+</section>
+
+<section class="requested-section">
+    <h2>Requested Scenepacks</h2>    <div class="requested-grid">
+        <div class="requested-category">
+            <h3>Movies</h3>
+            <ul id="requested-movies">
+                <!-- Dynamically populated -->
+            </ul>
+        </div>
+        <div class="requested-category">
+            <h3>Shows</h3>
+            <ul id="requested-shows">
+                <!-- Dynamically populated -->
+            </ul>
+        </div>
+        <div class="requested-category">
+            <h3>Games</h3>
+            <ul id="requested-games">
+                <!-- Dynamically populated -->
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="form-section">
+    <form>
+        <input type="text" placeholder="Your Name">
+        <input type="text" placeholder="Movie / Show / Game Title">
+        <textarea placeholder="Is this a Movie, Show, or Game?"></textarea>
+        <button class="btn">Submit Request</button>
+    </form>
+</section>
+
+<footer>
+    <p>© 2026 ORTX Scenepacks</p>
+</footer>
+
+<script>
+function loadRequested() {
+    const movies = JSON.parse(localStorage.getItem('requestedMovies') || '[]');
+    const shows = JSON.parse(localStorage.getItem('requestedShows') || '[]');
+    const games = JSON.parse(localStorage.getItem('requestedGames') || '[]');
+
+    const moviesUl = document.getElementById('requested-movies');
+    const showsUl = document.getElementById('requested-shows');
+    const gamesUl = document.getElementById('requested-games');
+
+    moviesUl.innerHTML = movies.map(item => `<li>${item}</li>`).join('');
+    showsUl.innerHTML = shows.map(item => `<li>${item}</li>`).join('');
+    gamesUl.innerHTML = games.map(item => `<li>${item}</li>`).join('');
+}
+
+function saveRequested(type, title) {
+    const key = 'requested' + type.charAt(0).toUpperCase() + type.slice(1) + 's';
+    const items = JSON.parse(localStorage.getItem(key) || '[]');
+    if (!items.includes(title)) {
+        items.push(title);
+        localStorage.setItem(key, JSON.stringify(items));
+    }
+}
+
+document.querySelector('form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const name = document.querySelector('input[placeholder="Your Name"]').value;
+    const title = document.querySelector('input[placeholder="Movie / Show / Game Title"]').value;
+    const notes = document.querySelector('textarea').value;
+
+    // Determine type from notes, or guess from title
+    let type = 'movie'; // default
+    if (notes.toLowerCase().includes('show') || notes.toLowerCase().includes('series')) {
+        type = 'show';
+    } else if (notes.toLowerCase().includes('game')) {
+        type = 'game';
+    } else {
+        // Guess from title
+        if (title.toLowerCase().includes('season') || title.toLowerCase().includes('series')) {
+            type = 'show';
+        } else if (title.toLowerCase().includes('game') || title.toLowerCase().includes('2077') || title.toLowerCase().includes('ring')) {
+            type = 'game';
+        }
+    }
+
+    saveRequested(type, title);
+    loadRequested();
+
+    // Clear form
+    this.reset();
+    alert('Request submitted! It has been added to the requested list.');
+});
+
+loadRequested();
+</script>
+
+<script>
+// Mouse Glow Effect - Fixed for scroll and modal interactions
+const mouseGlow = document.createElement('div');
+mouseGlow.classList.add('mouse-glow');
+mouseGlow.style.pointerEvents = 'none';
+document.body.appendChild(mouseGlow);
+
+// Track mouse position globally
+let mouseX = 0;
+let mouseY = 0;
+let isMouseInDocument = true;
+
+document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    isMouseInDocument = true;
+    mouseGlow.style.opacity = '1';
+    mouseGlow.style.left = mouseX + 'px';
+    mouseGlow.style.top = mouseY + 'px';
+});
+
+document.addEventListener('scroll', () => {
+    mouseGlow.style.left = mouseX + 'px';
+    mouseGlow.style.top = mouseY + 'px';
+});
+
+document.addEventListener('mouseout', (e) => {
+    if (e.relatedTarget === null) {
+        isMouseInDocument = false;
+        mouseGlow.style.opacity = '0';
+    }
+});
+
+document.addEventListener('mouseover', (e) => {
+    if (e.relatedTarget !== null || (!isMouseInDocument && mouseX > 0)) {
+        isMouseInDocument = true;
+        mouseGlow.style.opacity = '1';
+    }
+});
+
+document.addEventListener('click', () => {
+    if (isMouseInDocument) {
+        mouseGlow.style.opacity = '1';
+    }
+});
+
+window.addEventListener('blur', () => {
+    mouseGlow.style.opacity = '0';
+});
+
+window.addEventListener('focus', () => {
+    if (isMouseInDocument) {
+        mouseGlow.style.opacity = '1';
+    }
+});
+
+// ============================================
+// NEW STYLISH ENHANCEMENTS JAVASCRIPT
+// ============================================
+
+// 1. Scroll Progress Bar
+const scrollProgressEl = document.getElementById('scroll-progress');
+window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercent = (scrollTop / docHeight) * 100;
+    scrollProgressEl.style.width = scrollPercent + '%';
+});
+
+// 2. Particle Background
+function createParticles() {
+    const particlesContainer = document.getElementById('particles-js');
+    const particleCount = 30;
+    
+    for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.classList.add('particle');
+        
+        const size = Math.random() * 6 + 2;
+        const left = Math.random() * 100;
+        const duration = Math.random() * 20 + 15;
+        const delay = Math.random() * 10;
+        const color = Math.random() > 0.5 ? '#8a5cff' : '#3a86ff';
+        
+        particle.style.width = size + 'px';
+        particle.style.height = size + 'px';
+        particle.style.left = left + '%';
+        particle.style.background = color;
+        particle.style.animationDuration = duration + 's';
+        particle.style.animationDelay = delay + 's';
+        
+        particlesContainer.appendChild(particle);
+    }
+}
+
+createParticles();
+
+// 3. Add glassmorphism class to elements
+document.querySelector('header').classList.add('glass');
+document.querySelector('footer').classList.add('glass');
+
+// 4. Add gradient border to requested categories
+document.querySelectorAll('.requested-category').forEach(cat => {
+    cat.classList.add('gradient-border');
+});
+
+// 5. Add ripple effect to buttons
+document.querySelectorAll('.btn').forEach(btn => {
+    btn.classList.add('ripple');
+});
+
+</script>
+
+</body>
+</html>
